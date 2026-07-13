@@ -29,11 +29,13 @@ const SWATCHES = [
   { hex: "#0596AA", key: "c4" as const, style: "#0596AA" },
 ];
 
+// w/h are the intrinsic PNG dimensions so next/image reserves the right aspect
+// ratio and the browser never distorts the box (CSS scales them into the slot).
 const LOGOS = [
-  { file: "prostaff-logo.png", name: "ProStaff" },
-  { file: "arenabr-logo.png", name: "ArenaBR" },
-  { file: "scrims-logo.png", name: "scrims.lol", cls: "is-scrims" },
-  { file: "peneira-logo.png", name: "peneira.gg" },
+  { file: "prostaff-logo.png", name: "ProStaff", w: 332, h: 359 },
+  { file: "arenabr-logo.png", name: "ArenaBR", w: 810, h: 251 },
+  { file: "scrims-logo.png", name: "scrims.lol", cls: "is-scrims", w: 500, h: 500 },
+  { file: "peneira-logo.png", name: "peneira.gg", w: 284, h: 312 },
 ];
 
 export default async function MediaKitPage({ params }: Props) {
@@ -147,8 +149,8 @@ export default async function MediaKitPage({ params }: Props) {
                     <Image
                       src={`/logos/${logo.file}`}
                       alt={`${logo.name} logo`}
-                      width={160}
-                      height={56}
+                      width={logo.w}
+                      height={logo.h}
                       className={logo.cls}
                     />
                   </div>

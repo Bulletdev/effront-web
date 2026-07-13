@@ -4,6 +4,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SocialLinks } from "@/components/SocialLinks";
+import { CapabilitiesPuzzle, type CapPiece } from "@/components/CapabilitiesPuzzle";
+import { Statement } from "@/components/Statement";
 import type { Locale } from "@/i18n/routing";
 
 export async function generateMetadata({
@@ -53,13 +55,13 @@ export default async function AboutPage({ params }: Props) {
   const tCap = await getTranslations("Capabilities");
   const capItems = tCap.raw("items") as { tag: string; title: string; body: string }[];
 
-  const builtRows = [
-    { title: capItems[0].title, tag: capItems[0].tag, body: t("b1") },
-    { title: t("b2t"), tag: t("b2tag"), body: t("b2") },
-    { title: t("b3t"), tag: capItems[3].tag, body: t("b3") },
-    { title: capItems[2].title, tag: capItems[2].tag, body: t("b4") },
-    { title: capItems[4].title, tag: capItems[4].tag, body: capItems[4].body },
-    { title: capItems[5].title, tag: capItems[5].tag, body: capItems[5].body },
+  const builtPieces: CapPiece[] = [
+    { title: capItems[0].title, tag: capItems[0].tag, body: t("b1"), image: null },
+    { title: t("b2t"), tag: t("b2tag"), body: t("b2"), image: null },
+    { title: t("b3t"), tag: capItems[3].tag, body: t("b3"), image: null },
+    { title: capItems[2].title, tag: capItems[2].tag, body: t("b4"), image: null },
+    { title: capItems[4].title, tag: capItems[4].tag, body: capItems[4].body, image: null },
+    { title: capItems[5].title, tag: capItems[5].tag, body: capItems[5].body, image: null },
   ];
 
   return (
@@ -89,10 +91,11 @@ export default async function AboutPage({ params }: Props) {
             <span className="idx">01</span>
             <span>{t("sec1")}</span>
           </div>
-          <p className="mission-statement mt-[52px]">{t("lede")}</p>
-          <p className="mission-note mt-10 max-w-[60ch] text-[15.5px] leading-[1.68] text-(--muted-fg)">
-            {t("note")}
-          </p>
+          <Statement className="mission-statement mt-[52px]" text={t("lede")} />
+          <Statement
+            className="mission-note mt-10 max-w-[60ch] text-[15.5px] leading-[1.68] text-(--muted-fg)"
+            text={t("note")}
+          />
         </div>
       </section>
 
@@ -106,16 +109,7 @@ export default async function AboutPage({ params }: Props) {
             <h2>{t("builtH2")}</h2>
             <p>{t("builtIntro")}</p>
           </div>
-          {builtRows.map((row, i) => (
-            <div className="built-row" key={i}>
-              <span className="built-num">{String(i + 1).padStart(2, "0")}</span>
-              <div>
-                <h3>{row.title}</h3>
-                <span className="b-tag cap-tag">{row.tag}</span>
-              </div>
-              <p>{row.body}</p>
-            </div>
-          ))}
+          <CapabilitiesPuzzle items={builtPieces} />
         </div>
       </section>
 

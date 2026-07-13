@@ -16,8 +16,8 @@ export function SiteFooter() {
               src="/logos/effront-mark.png"
               alt=""
               aria-hidden
-              width={22}
-              height={22}
+              width={607}
+              height={645}
             />
             <span>
               Effront<span className="dot">.</span>

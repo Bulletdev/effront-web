@@ -6,6 +6,8 @@ import { Link } from "@/i18n/navigation";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ProductsShowcase, type ShowcaseProduct } from "@/components/ProductsShowcase";
+import { CapabilitiesPuzzle, type CapPiece } from "@/components/CapabilitiesPuzzle";
+import { Statement, withSentenceBreaks } from "@/components/Statement";
 import { PRODUCTS } from "@/data/products";
 import type { Locale } from "@/i18n/routing";
 
@@ -33,6 +35,25 @@ export default async function LandingPage({ params }: Props) {
 
   const words = tHero.raw("words") as string[];
   const capItems = tCap.raw("items") as { tag: string; title: string; body: string }[];
+
+  // Optional per-piece artwork: rendered only when the webp exists, so the
+  // section works today and picks up art the moment it lands in /capabilities.
+  const capIds = [
+    "draft-intelligence",
+    "real-time-matches",
+    "multi-tenant",
+    "competition",
+    "scrim-matchmaking",
+    "recruitment",
+  ];
+  const capPieces: CapPiece[] = capItems.map((item, i) => {
+    const id = capIds[i];
+    const art = id ? path.join(process.cwd(), "public", "capabilities", `${id}.webp`) : null;
+    return {
+      ...item,
+      image: art && fs.existsSync(art) ? `/capabilities/${id}.webp` : null,
+    };
+  });
 
   const showcaseProducts: ShowcaseProduct[] = PRODUCTS.map((meta) => {
     const copy = tProd.raw(meta.id) as {
@@ -82,8 +103,14 @@ export default async function LandingPage({ params }: Props) {
             </span>
           </h1>
           <div className="hero-below">
-            <p className="hero-sub" dangerouslySetInnerHTML={{ __html: tHero.raw("sub") }} />
-            <p className="hero-note" dangerouslySetInnerHTML={{ __html: tHero.raw("note") }} />
+            <p
+              className="hero-sub"
+              dangerouslySetInnerHTML={{ __html: withSentenceBreaks(tHero.raw("sub")) }}
+            />
+            <p
+              className="hero-note"
+              dangerouslySetInnerHTML={{ __html: withSentenceBreaks(tHero.raw("note")) }}
+            />
           </div>
         </div>
       </header>
@@ -100,7 +127,7 @@ export default async function LandingPage({ params }: Props) {
             <span className="dim">{tMission("statementSuffix")}</span>
           </p>
           <div className="mission-follow">
-            <p>{tMission("follow")}</p>
+            <Statement text={tMission("follow")} />
             <Link href="/about" className="mission-link">
               {tMission("link")}
             </Link>
@@ -118,16 +145,7 @@ export default async function LandingPage({ params }: Props) {
             <h2>{tCap("heading")}</h2>
             <p>{tCap("intro")}</p>
           </div>
-          {capItems.map((item, i) => (
-            <div className="cap-row" key={i}>
-              <span className="cap-num">{String(i + 1).padStart(2, "0")}</span>
-              <div>
-                <h3>{item.title}</h3>
-                <span className="cap-tag">{item.tag}</span>
-              </div>
-              <p>{item.body}</p>
-            </div>
-          ))}
+          <CapabilitiesPuzzle items={capPieces} />
         </div>
       </section>
 
