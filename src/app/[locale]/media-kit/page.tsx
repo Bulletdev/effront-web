@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Statement } from "@/components/Statement";
 import { CopyHexButton } from "@/components/CopyHexButton";
 import type { Locale } from "@/i18n/routing";
 
@@ -62,7 +63,7 @@ export default async function MediaKitPage({ params }: Props) {
                 .replaceAll("</gold>", "</span>"),
             }}
           />
-          <p className="page-lede">{t("lede")}</p>
+          <Statement className="page-lede" text={t("lede")} />
         </div>
       </header>
 
@@ -107,7 +108,7 @@ export default async function MediaKitPage({ params }: Props) {
                 </div>
               ))}
             </div>
-            <p className="mk-note">{t("rules")}</p>
+            <Statement className="mk-note" text={t("rules")} />
           </div>
 
           <div className="mk-block">

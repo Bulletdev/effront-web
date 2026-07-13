@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Statement } from "@/components/Statement";
 import type { Locale } from "@/i18n/routing";
 
 export async function generateMetadata({
@@ -34,7 +35,7 @@ export default async function PrivacyPage({ params }: Props) {
             {t("kicker")}
           </span>
           <h1>{t("h1")}</h1>
-          <p className="page-lede">{t("intro")}</p>
+          <Statement className="page-lede" text={t("intro")} />
           <p className="legal-updated">{t("updated")}</p>
         </div>
       </header>
@@ -45,12 +46,12 @@ export default async function PrivacyPage({ params }: Props) {
             {sections.map((sec, i) => (
               <div className="legal-section" key={i}>
                 <h3>{sec.title}</h3>
-                <p>{sec.body}</p>
+                <Statement text={sec.body} />
               </div>
             ))}
           </div>
 
-          <p className="legal-note">{t("note")}</p>
+          <Statement className="legal-note" text={t("note")} />
 
           <div className="contact-block">
             <a href="mailto:contato@effront.gg" className="contact-mail">

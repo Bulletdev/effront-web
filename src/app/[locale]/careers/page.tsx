@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Statement } from "@/components/Statement";
 import { CareersBoard } from "@/components/CareersBoard";
 import { VAGAS } from "@/data/vagas";
 import type { Locale } from "@/i18n/routing";
@@ -42,7 +43,7 @@ export default async function CareersPage({ params }: Props) {
                 .replaceAll("</gold>", "</span>"),
             }}
           />
-          <p className="page-lede">{t("lede")}</p>
+          <Statement className="page-lede" text={t("lede")} />
         </div>
       </header>
 

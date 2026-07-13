@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Statement } from "@/components/Statement";
 import type { Locale } from "@/i18n/routing";
 
 export async function generateMetadata({
@@ -39,7 +40,7 @@ export default async function ProductsPage({ params }: Props) {
             {tProd("sectionLabel")}
           </span>
           <h1>{tProd("heading")}</h1>
-          <p className="page-lede">{tProd("pageIntro")}</p>
+          <Statement className="page-lede" text={tProd("pageIntro")} />
         </div>
       </header>
 

@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import type { Locale } from "@/i18n/routing";
 import type { Vaga, VagaCategory } from "@/data/vagas";
 import { Link } from "@/i18n/navigation";
+import { Statement } from "@/components/Statement";
 
 type Labels = {
   all: string;
@@ -79,7 +80,7 @@ export function CareersBoard({
         </div>
       ) : (
         <div className="vg-empty">
-          <p>{labels.empty}</p>
+          <Statement text={labels.empty} />
         </div>
       )}
     </>

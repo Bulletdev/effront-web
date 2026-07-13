@@ -177,7 +177,7 @@ export default async function LandingPage({ params }: Props) {
             <a href="mailto:contato@effront.gg" className="contact-mail">
               contato@effront.gg
             </a>
-            <p className="contact-sub">{tContact("sub")}</p>
+            <Statement className="contact-sub" text={tContact("sub")} />
           </div>
         </div>
       </section>

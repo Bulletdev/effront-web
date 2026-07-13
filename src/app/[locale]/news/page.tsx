@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Statement } from "@/components/Statement";
 import type { Locale } from "@/i18n/routing";
 
 export async function generateMetadata({
@@ -48,7 +49,7 @@ export default async function NewsPage({ params }: Props) {
                 .replaceAll("</gold>", "</span>"),
             }}
           />
-          <p className="page-lede">{t("lede")}</p>
+          <Statement className="page-lede" text={t("lede")} />
         </div>
       </header>
 
