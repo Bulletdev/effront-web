@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
-import { CAP_PUZZLE } from "@/data/capPuzzle";
+import { CAP_PUZZLE, CAP_PUZZLE_MOBILE } from "@/data/capPuzzle";
 
 export type CapPiece = {
   tag: string;
@@ -21,23 +21,33 @@ const ACCENTS = [
 ] as const;
 
 export function CapabilitiesPuzzle({ items }: { items: CapPiece[] }) {
-  const pieces = CAP_PUZZLE.pieces;
+  const d = CAP_PUZZLE;
+  const m = CAP_PUZZLE_MOBILE;
 
   return (
     <div
       className="cap-puzzle"
       style={
         {
-          "--pz-w": `${CAP_PUZZLE.boxWidthPct}%`,
-          "--pz-h": `${CAP_PUZZLE.boxHeightPct}%`,
+          "--pz-ar-d": d.aspect,
+          "--pz-ar-m": m.aspect,
+          "--pz-wd": `${d.boxWidthPct}%`,
+          "--pz-hd": `${d.boxHeightPct}%`,
+          "--pz-wm": `${m.boxWidthPct}%`,
+          "--pz-hm": `${m.boxHeightPct}%`,
         } as CSSProperties
       }
     >
-      {/* clip shapes for each interlocking piece (objectBoundingBox = scales with size) */}
+      {/* clip shapes for each piece, both layouts (objectBoundingBox = scales with size) */}
       <svg className="cap-puzzle__defs" width="0" height="0" aria-hidden="true">
         <defs>
-          {pieces.map((p, i) => (
-            <clipPath key={i} id={`capPiece-${i}`} clipPathUnits="objectBoundingBox">
+          {d.pieces.map((p, i) => (
+            <clipPath key={`d${i}`} id={`capPiece-${i}`} clipPathUnits="objectBoundingBox">
+              <path d={p.clip} />
+            </clipPath>
+          ))}
+          {m.pieces.map((p, i) => (
+            <clipPath key={`m${i}`} id={`capPieceM-${i}`} clipPathUnits="objectBoundingBox">
               <path d={p.clip} />
             </clipPath>
           ))}
@@ -45,7 +55,8 @@ export function CapabilitiesPuzzle({ items }: { items: CapPiece[] }) {
       </svg>
 
       {items.map((it, i) => {
-        const p = pieces[i % pieces.length];
+        const pd = d.pieces[i % d.pieces.length];
+        const pm = m.pieces[i % m.pieces.length];
         return (
           <article
             key={i}
@@ -53,10 +64,12 @@ export function CapabilitiesPuzzle({ items }: { items: CapPiece[] }) {
             style={
               {
                 "--accent": ACCENTS[i % ACCENTS.length],
-                left: `${p.left}%`,
-                top: `${p.top}%`,
-                clipPath: `url(#capPiece-${i})`,
-                WebkitClipPath: `url(#capPiece-${i})`,
+                "--ld": `${pd.left}%`,
+                "--td": `${pd.top}%`,
+                "--lm": `${pm.left}%`,
+                "--tm": `${pm.top}%`,
+                "--cd": `url(#capPiece-${i})`,
+                "--cm": `url(#capPieceM-${i})`,
               } as CSSProperties
             }
           >
@@ -78,15 +91,25 @@ export function CapabilitiesPuzzle({ items }: { items: CapPiece[] }) {
         );
       })}
 
-      {/* crisp seams drawn on top so the interlock reads even when fills match */}
+      {/* crisp seams on top so the interlock reads even when fills match */}
       <svg
-        className="cap-puzzle__seams"
-        viewBox={CAP_PUZZLE.viewBox}
+        className="cap-puzzle__seams cap-puzzle__seams--d"
+        viewBox={d.viewBox}
         preserveAspectRatio="none"
         aria-hidden="true"
       >
-        {pieces.map((p, i) => (
-          <path key={i} d={p.stroke} vectorEffect="non-scaling-stroke" />
+        {d.pieces.map((p, i) => (
+          <path key={i} d={p.stroke} />
+        ))}
+      </svg>
+      <svg
+        className="cap-puzzle__seams cap-puzzle__seams--m"
+        viewBox={m.viewBox}
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        {m.pieces.map((p, i) => (
+          <path key={i} d={p.stroke} />
         ))}
       </svg>
     </div>

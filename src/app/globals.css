@@ -470,11 +470,11 @@ section {
   color: var(--muted-fg);
   max-width: 38ch;
 }
-/* ── capabilities as an interlocking 3×2 jigsaw ──────────────────────── */
+/* ── capabilities jigsaw: 3×2 on desktop, 1×6 vertical strip on mobile ── */
 .cap-puzzle {
   position: relative;
   width: 100%;
-  aspect-ratio: 1080 / 600;
+  aspect-ratio: var(--pz-ar-d);
   margin-top: 8px;
 }
 .cap-puzzle__defs {
@@ -485,8 +485,12 @@ section {
 }
 .cap-piece {
   position: absolute;
-  width: var(--pz-w);
-  height: var(--pz-h);
+  width: var(--pz-wd);
+  height: var(--pz-hd);
+  left: var(--ld);
+  top: var(--td);
+  clip-path: var(--cd);
+  -webkit-clip-path: var(--cd);
   z-index: 1;
   overflow: hidden;
   background:
@@ -561,35 +565,40 @@ section {
   stroke: var(--border);
   stroke-width: 1;
 }
+.cap-puzzle__seams--m {
+  display: none;
+}
 @media (max-width: 900px) {
   .cap-puzzle {
-    position: static;
-    aspect-ratio: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+    aspect-ratio: var(--pz-ar-m);
     margin-top: 20px;
   }
-  .cap-puzzle__defs,
-  .cap-puzzle__seams {
-    display: none;
-  }
   .cap-piece {
-    position: relative !important;
-    width: 100% !important;
-    height: auto !important;
-    inset: auto !important;
-    clip-path: none !important;
-    -webkit-clip-path: none !important;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    width: var(--pz-wm);
+    height: var(--pz-hm);
+    left: var(--lm);
+    top: var(--tm);
+    clip-path: var(--cm);
+    -webkit-clip-path: var(--cm);
   }
   .cap-piece__inner {
-    padding: 26px 24px;
-    gap: 14px;
+    /* horizontal padding must clear the puzzle notch (~23px) so text never
+       runs under the interlocking edge on the narrow 2-col pieces */
+    padding: 26px 30px;
+    gap: 8px;
+  }
+  .cap-piece__title {
+    font-size: 1.05rem;
   }
   .cap-piece__body {
-    font-size: 14.5px;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  .cap-puzzle__seams--d {
+    display: none;
+  }
+  .cap-puzzle__seams--m {
+    display: block;
   }
 }
 
@@ -1954,14 +1963,31 @@ img.tm-avatar {
   gap: 20px;
 }
 @media (max-width: 980px) {
-  .eco-grid {
-    grid-template-columns: 1fr;
-  }
-  .eco-stem,
+  /* keep the tree readable as a vertical spine threading the stacked cards */
   .eco-branch {
     display: none;
   }
   .eco-parent {
-    margin-bottom: 24px;
+    margin-bottom: 0;
+  }
+  .eco-grid {
+    grid-template-columns: 1fr;
+    position: relative;
+    gap: 26px;
+  }
+  .eco-grid::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    transform: translateX(-50%);
+    background: var(--gold-dim);
+    z-index: 0;
+  }
+  .eco-grid > .eco-card {
+    position: relative;
+    z-index: 1;
   }
 }
