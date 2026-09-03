@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/stable/:file",
+      "has": [{ "type": "host", "value": "downloads.effront.gg" }],
+      "destination": "https://dlfdqfmwpe6luwaa.public.blob.vercel-storage.com/stable/:file"
+    }
+  ]
+}
