@@ -7,12 +7,8 @@ const filePath = process.argv[2];
 const blobPathname = process.argv[3] ?? DEFAULT_PATHNAME;
 
 if (!filePath) {
-  console.error(
-    "Usage: node scripts/upload-release.mjs <path-to-file> [blob-pathname]",
-  );
-  console.error(
-    `  blob-pathname defaults to "${DEFAULT_PATHNAME}"`,
-  );
+  console.error("Usage: node scripts/upload-release.mjs <path-to-file> [blob-pathname]");
+  console.error(`  blob-pathname defaults to "${DEFAULT_PATHNAME}"`);
   process.exit(1);
 }
 
