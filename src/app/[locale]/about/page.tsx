@@ -5,6 +5,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Statement } from "@/components/Statement";
 import { Reveal } from "@/components/Reveal";
+import { Accordion } from "@/components/Accordion";
 import { CtaBand } from "@/components/CtaBand";
 import type { Locale } from "@/i18n/routing";
 
@@ -50,6 +51,12 @@ export default async function AboutPage({ params }: Props) {
 
   const t = await getTranslations("About");
   const tContact = await getTranslations("Contact");
+
+  const milestones = [
+    { date: t("tl1d"), title: t("tl1t"), body: t("tl1") },
+    { date: t("tl2d"), title: t("tl2t"), body: t("tl2") },
+    { date: t("tl3d"), title: t("tl3t"), body: t("tl3") },
+  ];
 
   return (
     <>
@@ -99,21 +106,19 @@ export default async function AboutPage({ params }: Props) {
               <h2>{t("tlH2")}</h2>
               <p>{t("tlIntro")}</p>
             </div>
-            <div className="tl-row">
-              <span className="tl-date">{t("tl1d")}</span>
-              <h3>{t("tl1t")}</h3>
-              <p>{t("tl1")}</p>
-            </div>
-            <div className="tl-row">
-              <span className="tl-date">{t("tl2d")}</span>
-              <h3>{t("tl2t")}</h3>
-              <p>{t("tl2")}</p>
-            </div>
-            <div className="tl-row">
-              <span className="tl-date">{t("tl3d")}</span>
-              <h3>{t("tl3t")}</h3>
-              <p>{t("tl3")}</p>
-            </div>
+            <Accordion
+              items={milestones.map((m) => ({
+                title: (
+                  <span className="flex items-center gap-4">
+                    <span className="text-[12px] font-bold tracking-[0.1em] text-(--gold) uppercase tabular-nums">
+                      {m.date}
+                    </span>
+                    <span>{m.title}</span>
+                  </span>
+                ),
+                body: m.body,
+              }))}
+            />
           </Reveal>
         </div>
       </section>

@@ -1019,48 +1019,6 @@ footer .wrap {
   }
 }
 
-/* timeline rows (news / about) */
-.tl-row {
-  display: grid;
-  grid-template-columns: 110px 1fr 1.5fr;
-  gap: 32px;
-  align-items: start;
-  padding: 30px 0;
-  border-top: 1px solid var(--border);
-}
-.tl-row:first-of-type {
-  border-top: none;
-}
-.tl-date {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-top: 6px;
-  font-variant-numeric: tabular-nums;
-}
-.tl-row h3 {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-.tl-row p {
-  font-size: 14.5px;
-  font-weight: 450;
-  line-height: 1.65;
-  color: var(--muted-fg);
-  max-width: 58ch;
-}
-@media (max-width: 860px) {
-  .tl-row {
-    grid-template-columns: 90px 1fr;
-  }
-  .tl-row p {
-    grid-column: 2;
-  }
-}
-
 /* numbered rows (privacy) */
 .pv-row {
   display: grid;
