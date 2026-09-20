@@ -23,7 +23,7 @@ export function SiteFooter() {
               Effront<span className="dot">.</span>
             </span>
           </Link>
-          <span className="foot-tagline">Tech for eSports</span>
+          <span className="foot-tagline">Offensive security for gaming</span>
         </div>
         <nav className="foot-nav">
           <Link href="/careers">{t("careers")}</Link>

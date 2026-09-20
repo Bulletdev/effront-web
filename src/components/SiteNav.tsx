@@ -21,8 +21,8 @@ export function SiteNav({ locale, pathname }: { locale: Locale; pathname: string
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
-          <Link href="/products" className={linkClass}>
-            {t("products")}
+          <Link href="/services" className={linkClass}>
+            {t("services")}
           </Link>
           <Link href="/careers" className={linkClass}>
             {t("careers")}
@@ -50,8 +50,8 @@ export function SiteNav({ locale, pathname }: { locale: Locale; pathname: string
       {open && (
         <div className="mobile-nav-panel md:hidden">
           <div className="wrap flex flex-col gap-1 py-4">
-            <Link href="/products" className="mobile-nav-link" onClick={() => setOpen(false)}>
-              {t("products")}
+            <Link href="/services" className="mobile-nav-link" onClick={() => setOpen(false)}>
+              {t("services")}
             </Link>
             <Link href="/careers" className="mobile-nav-link" onClick={() => setOpen(false)}>
               {t("careers")}

@@ -4,6 +4,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Statement } from "@/components/Statement";
 import { CareersBoard } from "@/components/CareersBoard";
+import { CtaBand } from "@/components/CtaBand";
 import { VAGAS } from "@/data/vagas";
 import type { Locale } from "@/i18n/routing";
 
@@ -62,13 +63,12 @@ export default async function CareersPage({ params }: Props) {
               detailsCta: t("detailsCta"),
             }}
           />
+        </div>
+      </section>
 
-          <div className="contact-block">
-            <h2>{t("ctaH2")}</h2>
-            <a href="mailto:contato@effront.gg" className="contact-mail">
-              contato@effront.gg
-            </a>
-          </div>
+      <section className="section-dark">
+        <div className="wrap">
+          <CtaBand heading={t("ctaH2")} href="mailto:contato@effront.gg" cta="contato@effront.gg" />
         </div>
       </section>
 

@@ -1,5 +1,6 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties, ComponentType } from "react";
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 import { CAP_PUZZLE, CAP_PUZZLE_MOBILE } from "@/data/capPuzzle";
 
 export type CapPiece = {
@@ -7,18 +8,13 @@ export type CapPiece = {
   title: string;
   body: string;
   image: string | null;
+  href?: string;
+  Icon?: ComponentType<{ size?: number; strokeWidth?: number; className?: string }>;
 };
 
-// Restrained accents (r,g,b) — teal/gold family per the design tokens, kept low
-// saturation so the hover glow reads as a tint, never a flood.
-const ACCENTS = [
-  "5, 150, 170", // teal
-  "200, 155, 60", // gold
-  "96, 170, 190", // soft cyan
-  "124, 168, 120", // muted green
-  "210, 150, 92", // warm amber
-  "132, 150, 200", // slate blue
-] as const;
+// Single red accent per the brand tokens — every piece hovers the same tint,
+// no rainbow of unrelated colors.
+const ACCENTS = ["242, 0, 36"] as const;
 
 export function CapabilitiesPuzzle({ items }: { items: CapPiece[] }) {
   const d = CAP_PUZZLE;
@@ -57,22 +53,17 @@ export function CapabilitiesPuzzle({ items }: { items: CapPiece[] }) {
       {items.map((it, i) => {
         const pd = d.pieces[i % d.pieces.length];
         const pm = m.pieces[i % m.pieces.length];
-        return (
-          <article
-            key={i}
-            className="cap-piece"
-            style={
-              {
-                "--accent": ACCENTS[i % ACCENTS.length],
-                "--ld": `${pd.left}%`,
-                "--td": `${pd.top}%`,
-                "--lm": `${pm.left}%`,
-                "--tm": `${pm.top}%`,
-                "--cd": `url(#capPiece-${i})`,
-                "--cm": `url(#capPieceM-${i})`,
-              } as CSSProperties
-            }
-          >
+        const style = {
+          "--accent": ACCENTS[i % ACCENTS.length],
+          "--ld": `${pd.left}%`,
+          "--td": `${pd.top}%`,
+          "--lm": `${pm.left}%`,
+          "--tm": `${pm.top}%`,
+          "--cd": `url(#capPiece-${i})`,
+          "--cm": `url(#capPieceM-${i})`,
+        } as CSSProperties;
+        const content = (
+          <>
             {it.image && (
               <Image
                 className="cap-piece__img"
@@ -83,10 +74,20 @@ export function CapabilitiesPuzzle({ items }: { items: CapPiece[] }) {
               />
             )}
             <div className="cap-piece__inner">
+              {it.Icon && <it.Icon size={22} strokeWidth={1.75} className="cap-piece__icon" />}
               <span className="cap-piece__tag">{it.tag}</span>
               <h3 className="cap-piece__title">{it.title}</h3>
               <p className="cap-piece__body">{it.body}</p>
             </div>
+          </>
+        );
+        return it.href ? (
+          <Link key={i} href={it.href} className="cap-piece" style={style}>
+            {content}
+          </Link>
+        ) : (
+          <article key={i} className="cap-piece" style={style}>
+            {content}
           </article>
         );
       })}

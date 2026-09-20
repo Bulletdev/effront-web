@@ -3,6 +3,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Statement } from "@/components/Statement";
+import { Reveal } from "@/components/Reveal";
+import { Accordion } from "@/components/Accordion";
 import type { Locale } from "@/i18n/routing";
 
 export async function generateMetadata({
@@ -25,10 +27,9 @@ export default async function NewsPage({ params }: Props) {
   const tAbout = await getTranslations("About");
 
   const milestones = [
-    { date: "2026", title: tAbout("tl4t"), body: tAbout("tl4") },
-    { date: "2026", title: tAbout("tl3t"), body: tAbout("tl3") },
-    { date: "2026 Q1", title: tAbout("tl2t"), body: tAbout("tl2") },
-    { date: "2024", title: tAbout("tl1t"), body: tAbout("tl1") },
+    { date: tAbout("tl3d"), title: tAbout("tl3t"), body: tAbout("tl3") },
+    { date: tAbout("tl2d"), title: tAbout("tl2t"), body: tAbout("tl2") },
+    { date: tAbout("tl1d"), title: tAbout("tl1t"), body: tAbout("tl1") },
   ];
 
   return (
@@ -55,13 +56,22 @@ export default async function NewsPage({ params }: Props) {
 
       <section className="page-body">
         <div className="wrap">
-          {milestones.map((m, i) => (
-            <div className="tl-row" key={i}>
-              <span className="tl-date">{m.date}</span>
-              <h3>{m.title}</h3>
-              <p>{m.body}</p>
-            </div>
-          ))}
+          <Reveal>
+            <Accordion
+              defaultOpen={0}
+              items={milestones.map((m) => ({
+                title: (
+                  <span className="flex items-center gap-4">
+                    <span className="text-[12px] font-bold tracking-[0.1em] text-(--gold) uppercase tabular-nums">
+                      {m.date}
+                    </span>
+                    <span>{m.title}</span>
+                  </span>
+                ),
+                body: m.body,
+              }))}
+            />
+          </Reveal>
         </div>
       </section>
 

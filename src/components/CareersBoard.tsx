@@ -5,6 +5,9 @@ import type { Locale } from "@/i18n/routing";
 import type { Vaga, VagaCategory } from "@/data/vagas";
 import { Link } from "@/i18n/navigation";
 import { Statement } from "@/components/Statement";
+import { Reveal } from "@/components/Reveal";
+
+const DELAYS = ["d1", "d2", "d3", "d4"] as const;
 
 type Labels = {
   all: string;
@@ -68,14 +71,16 @@ export function CareersBoard({
 
       {filtered.length > 0 ? (
         <div className="vg-grid">
-          {filtered.map((v) => (
-            <Link key={v.id} href={`/careers/${v.id}`} className="vg-card">
-              <span className="vg-cat">{catLabel[v.cat]}</span>
-              <h3>{v.title[locale]}</h3>
-              <span className="vg-loc">{v.location}</span>
-              <p>{v.summary[locale]}</p>
-              <span className="vg-more">{labels.detailsCta}</span>
-            </Link>
+          {filtered.map((v, i) => (
+            <Reveal key={v.id} delay={DELAYS[i % DELAYS.length]} className="h-full">
+              <Link href={`/careers/${v.id}`} className="vg-card">
+                <span className="vg-cat">{catLabel[v.cat]}</span>
+                <h3>{v.title[locale]}</h3>
+                <span className="vg-loc">{v.location}</span>
+                <p>{v.summary[locale]}</p>
+                <span className="vg-more">{labels.detailsCta}</span>
+              </Link>
+            </Reveal>
           ))}
         </div>
       ) : (

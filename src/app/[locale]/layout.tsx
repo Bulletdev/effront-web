@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { inter, bricolage } from "@/fonts";
+import { RightClickGuard } from "@/components/RightClickGuard";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -43,6 +44,7 @@ export default async function LocaleLayout({
     >
       <body className="antialiased">
         <NextIntlClientProvider locale={locale}>{children}</NextIntlClientProvider>
+        <RightClickGuard />
       </body>
     </html>
   );

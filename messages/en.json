@@ -1,6 +1,6 @@
 {
   "Nav": {
-    "products": "Products",
+    "services": "Services",
     "careers": "Careers",
     "about": "About",
     "talk": "Talk to us"
@@ -14,182 +14,197 @@
     "copyright": "© 2026 EFFRONT"
   },
   "Hero": {
-    "kicker": "Esports infrastructure",
-    "lead": "The software behind",
+    "lead": "We find the exploit",
     "words": [
-      "competitive play.",
-      "team management.",
-      "amateur tournaments.",
-      "draft intelligence.",
-      "real-time data."
+      "before the cheater does.",
+      "before the attacker does.",
+      "before your tournament goes down."
     ],
-    "sub": "From the amateur team on the rise to the organization already competing at the highest level: we build the technical foundation running behind it all - from draft to bracket.",
-    "note": "Currently focused on <b>League of Legends</b>. The same foundation will support other titles as the ecosystem grows."
+    "sub": "From the API that runs a tournament bracket to the client that reads player input - we test the layer where cheating, fraud and platform compromise actually happen. Not generic infra scanning: security testing that understands game logic.",
+    "note": "Built by people who shipped real-time infrastructure for competitive gaming. <b>Authorized testing only</b> - every engagement starts with a signed scope."
   },
   "Mission": {
     "sectionLabel": "Who we are",
-    "statementPrefix": "We started by solving a real problem: ",
-    "statementHighlight": "competitive League of Legends organizations lacking professional tools",
-    "statementSuffix": " to manage a roster, analyze a draft, or run a tournament.",
-    "follow": "Today we build the technical foundation that supports this. What we list here exists - and anything still in the works is labeled as such.",
-    "link": "Our story →"
+    "statementPrefix": "We started building ",
+    "statementHighlight": "real-time infrastructure for competitive gaming",
+    "statementSuffix": " - and learned exactly where that kind of system breaks.",
+    "follow": "Today we apply that to offensive security: pentest, exploit simulation and game-logic auditing for platforms, tournaments and studios. What we list here is what we actually do - not a services menu copied from a generic MSSP.",
+    "link": "Our background →"
   },
   "Capabilities": {
-    "sectionLabel": "What we've built",
-    "heading": "One technical base, four products.",
-    "intro": "Everything below is already built and in use - not a roadmap, but what runs behind ProStaff, ArenaBR, scrims.lol and peneira.gg today.",
+    "sectionLabel": "How we test",
+    "heading": "Not generic infra security.",
+    "intro": "Every item below is a real technique we use - not a checklist copied from an MSSP playbook.",
     "items": [
       {
-        "tag": "AI",
-        "title": "Draft intelligence",
-        "body": "Champion synergy, counter matchups and win probability computed from thousands of matches - the same engine that suggests picks during a live draft."
+        "tag": "Recon",
+        "title": "Surface mapping",
+        "body": "API endpoints, matchmaking flow, client-server boundary - we map what an attacker, or a cheater, would actually target first."
       },
       {
-        "tag": "Live data",
-        "title": "Real-time matches",
-        "body": "Direct integration with the Riot Games API and PandaScore, with live score updates via event streaming."
+        "tag": "Exploit",
+        "title": "Business-logic abuse",
+        "body": "Item duplication, currency exploits, auth bypass, rank manipulation - the vulnerabilities scanners don't find because they're not broken code, they're broken assumptions."
       },
       {
-        "tag": "Security",
-        "title": "Multi-tenant architecture",
-        "body": "Complete data isolation between organizations and access auditing at every layer of the system."
+        "tag": "Anti-cheat",
+        "title": "Cheat simulation",
+        "body": "We build the same class of tooling a real cheater would, in a controlled environment, to measure what your detection actually catches."
       },
       {
-        "tag": "ArenaBR",
-        "title": "Competition infrastructure",
-        "body": "Brackets, team registration and PIX payments - end to end, for amateur tournaments."
+        "tag": "Infra",
+        "title": "Load & resilience testing",
+        "body": "Simulated load against matchmaking, tournament brackets and live-event infrastructure - measured before a real audience finds the breaking point during a final."
       },
       {
-        "tag": "scrims.lol",
-        "title": "Scrim matchmaking",
-        "body": "Opponent suggestions by region and tier, weekly configurable availability and invite/accept scrims - plus tier-balanced inhouse sessions and built-in analytics."
+        "tag": "Reporting",
+        "title": "Retest, not a PDF and gone",
+        "body": "Every finding is retested after the fix ships. Severity, evidence and status - tracked until it's actually closed, not just reported once."
       },
       {
-        "tag": "peneira.gg",
-        "title": "Recruitment and tryouts",
-        "body": "Talent pool, team openings and tryouts powered by real Riot API data - an MVP in development on top of prostaff-api and riot-gateway."
+        "tag": "Ethics",
+        "title": "Written authorization, always",
+        "body": "No test starts without a signed scope and written authorization from whoever owns the system. No exceptions."
       }
     ]
   },
-  "Products": {
-    "sectionLabel": "Products",
-    "heading": "One product per stage of the competitive journey.",
-    "whatItDoes": "What it does",
+  "Services": {
+    "sectionLabel": "Services",
+    "heading": "Security testing that understands game logic.",
+    "pageIntro": "Offensive security for gaming platforms, tournaments and studios - from a single API to a live event under load.",
+    "whatItDoes": "What it covers",
     "builtFor": "Built for",
-    "prostaff": {
-      "eyebrow": "For competitive organizations",
-      "body": "Complete management for League of Legends organizations: rosters, player statistics, draft analysis and scouting - all in one place, built for those who already take the competitive scene seriously.",
-      "cta": "Go to prostaff.gg →",
+    "viewAll": "See all services →",
+    "cta": "Discuss scope →",
+    "platformPentest": {
+      "eyebrow": "For tournament platforms, launchers and backends",
+      "name": "Platform & API Pentest",
+      "tagline": "Manual pentest of the app, API and backend behind your platform.",
+      "body": "Manual penetration testing of the web application, API and backend behind your game or platform - matchmaking, tournament brackets, payments, player accounts. We go past what an automated scanner catches.",
       "features": [
-        "AI draft analysis and win probability",
-        "Player scouting and watchlist",
-        "Real-time messaging and VOD review",
-        "Team goals and progress tracking"
+        "REST/GraphQL API testing",
+        "Authentication and session abuse",
+        "Matchmaking and bracket logic",
+        "Payment flow security"
       ],
       "builtFor": [
-        "Professional and semi-professional organizations",
-        "Full roster and technical staff",
-        "Real competitive performance - not a casual stats app"
-      ],
-      "tagline": "Rosters, AI draft analysis, scouting and VOD review - all in one place."
+        "Tournament and platform operators",
+        "Game studios with live backends",
+        "Teams shipping under real player load"
+      ]
     },
-    "scrims": {
-      "eyebrow": "For competitive practice",
-      "body": "Scrim matchmaking between League of Legends teams: opponent suggestions by region and tier, weekly configurable availability, and invites with a proposed date and message - every practice match is recorded straight into scrims.lol's own analytics.",
-      "cta": "Go to scrims.lol →",
+    "gameLogicAudit": {
+      "eyebrow": "For studios and live-service games",
+      "name": "Anti-Cheat & Game-Logic Audit",
+      "tagline": "Auditing the business logic a generic pentest misses.",
+      "body": "We audit the business logic a generic pentest misses: item duplication, currency and economy exploits, rank and matchmaking manipulation, and the client-trust assumptions your anti-cheat relies on.",
       "features": [
-        "Matchmaking by region and tier",
-        "Weekly configurable availability",
-        "Scrim invites with opponent accept",
-        "Inhouse sessions with tier balancing",
-        "Public team lobby",
-        "Built-in analytics: KDA, charts and trends"
+        "Economy and duplication exploit testing",
+        "Client-trust boundary review",
+        "Rank and matchmaking manipulation testing",
+        "Anti-cheat bypass assessment"
       ],
       "builtFor": [
-        "Teams looking for regular competitive practice",
-        "Amateur and semi-professional rosters",
-        "The same backend that powers ProStaff"
-      ],
-      "tagline": "Scrim matchmaking for regular competitive practice."
+        "Live-service games with an in-game economy",
+        "Competitive titles with ranked play",
+        "Studios validating anti-cheat before launch"
+      ]
     },
-    "arenabr": {
-      "eyebrow": "For the amateur scene",
-      "body": "Organize and join amateur League of Legends tournaments - from bracket to registration, with integrated payment, no spreadsheets or WhatsApp groups.",
-      "cta": "Go to ArenaBR →",
+    "exploitSimulation": {
+      "eyebrow": "For orgs who want to see the real attack, not just a finding list",
+      "name": "Exploit Simulation & Red Team",
+      "tagline": "The same exploit a real attacker or cheat developer would build.",
+      "body": "We build and run the same class of exploit a real attacker or cheat developer would - proof of concept, not theoretical CVE citations. Controlled, scoped, and never touching real player data.",
       "features": [
-        "Automatic tournament brackets",
-        "Simple team registration",
-        "Integrated PIX payment",
-        "Dedicated panel for organizers and players"
+        "Custom exploit / PoC development",
+        "Adversary simulation against live systems",
+        "Non-destructive, scoped engagement",
+        "Synthetic data only - no real player data touched"
       ],
       "builtFor": [
-        "Amateur scene players",
+        "Orgs that already patch known CVEs and want to know what's left",
+        "Teams preparing for a security review or audit",
+        "Anyone who wants proof, not a checklist"
+      ]
+    },
+    "infraResilience": {
+      "eyebrow": "For live events and high-traffic launches",
+      "name": "Tournament Infra Resilience Testing",
+      "tagline": "Finding the breaking point in a test, not during your final.",
+      "body": "Load and resilience testing against matchmaking, brackets and live-event infrastructure - so the breaking point gets found in a test, not during your grand final in front of an audience.",
+      "features": [
+        "Simulated load testing",
+        "DDoS resilience assessment",
+        "Failure-mode mapping under load",
+        "Pre-event readiness review"
+      ],
+      "builtFor": [
         "Tournament organizers",
-        "Structured competition - the same technical base behind ProStaff"
-      ],
-      "tagline": "Amateur tournaments, from bracket to payment."
+        "Platforms with scheduled high-traffic events",
+        "Teams that can't afford downtime during a broadcast"
+      ]
     },
-    "peneira": {
-      "eyebrow": "For finding (and building) a team",
-      "status": "MVP in development",
-      "cta": "Go to peneira.gg →",
-      "body": "Recruitment and tryouts for the Brazilian amateur and semi-pro scene: a talent pool, team openings and tryout events - built on real Riot API data via riot-gateway, not self-declared profiles.",
+    "training": {
+      "eyebrow": "For engineering teams shipping live systems",
+      "name": "Security Training for Game Dev Teams",
+      "tagline": "The vulnerability classes that actually show up in game backends.",
+      "body": "Practical, game-specific secure development training - the vulnerability classes that actually show up in matchmaking, netcode and live-service backends, not a generic slide deck.",
       "features": [
-        "Talent pool with filters and public profiles",
-        "Team openings with applications",
-        "Tryout events with registration",
-        "LFT Generator - ready-made posts for Discord and Twitter"
+        "Secure coding for game backends",
+        "Common exploit classes in live-service games",
+        "Hands-on labs with synthetic scenarios",
+        "Tailored to your stack"
       ],
       "builtFor": [
-        "Players and staff looking for a team",
-        "Organizations recruiting a roster",
-        "Same backend: prostaff-api + riot-gateway"
-      ],
-      "tagline": "Recruitment and tryouts powered by real Riot API data."
+        "Engineering teams shipping live-service games",
+        "Studios building their first anti-cheat",
+        "Teams onboarding new backend engineers"
+      ]
     },
-    "pageIntro": "One product per stage of the competitive journey - from the amateur team on the rise to the organization already competing at the highest level.",
-    "viewAll": "See all products →",
-    "productStats": "Product stats",
-    "clients": "Clients",
-    "comingSoon": "Coming soon",
-    "previewSoon": "Preview coming soon"
+    "incidentResponse": {
+      "eyebrow": "For platforms and studios handling an active incident",
+      "name": "Incident Response for Gaming Platforms",
+      "tagline": "Breach response and forensics when it's already happening.",
+      "body": "When a breach, a mass account-takeover wave, or a leaked player database happens, we help contain it, figure out what actually happened, and get you back to a defensible state - not a generic IR retainer, incident response that understands gaming-specific attack patterns.",
+      "features": [
+        "Containment and triage",
+        "Forensic timeline reconstruction",
+        "Player data exposure assessment",
+        "Post-incident hardening report"
+      ],
+      "builtFor": [
+        "Platforms responding to an active breach",
+        "Studios that suffered an account-takeover wave",
+        "Teams needing a forensic report for disclosure or compliance"
+      ]
+    }
   },
   "Contact": {
     "sectionLabel": "Contact",
-    "heading": "Want to know more? Talk to the people building the infrastructure behind your team.",
-    "sub": "No forms, no funnel. A direct email to the people writing the code."
+    "heading": "Want to know if your game or platform holds up? Talk to the people who'll actually test it.",
+    "sub": "No forms, no funnel. Scope discussed directly by email, with the people who write the exploit."
   },
   "About": {
     "kicker": "About",
-    "h1": "What we build <gold>speaks for us.</gold>",
-    "lede": "Effront is the company behind ProStaff, ArenaBR, scrims.lol and peneira.gg. We build the software running behind team management and tournament operations - and this page shows only what runs today.",
+    "h1": "What we break <gold>speaks for us.</gold>",
+    "lede": "Effront is offensive security for gaming and esports: platform and API pentest, anti-cheat and game-logic auditing, exploit simulation and tournament infrastructure testing. We started building real-time infrastructure for competitive gaming - this page shows what that background lets us actually test.",
     "sec1": "Where we come from",
-    "sec3": "What we've already built",
-    "note": "Effront is a young project. Instead of inflating numbers or inventing client logos, this page lists exactly what is already built and running - and nothing more.",
-    "builtH2": "Not a roadmap - it's what runs today.",
-    "builtIntro": "Every item exists, is in production, and can be verified in the products themselves.",
-    "b1": "Champion synergy, counter matchups and win probability, computed from thousands of real matches.",
-    "b2t": "Riot Games API + PandaScore",
-    "b2tag": "Data",
-    "b2": "Player and match data sync, including the live score update pipeline.",
-    "b3t": "Amateur competition infrastructure",
-    "b3": "Brackets, registration and PIX payment - end to end, no spreadsheets.",
-    "b4": "Data isolation between organizations and access auditing at every layer - taken seriously from the start.",
-    "tlSec": "Timeline",
-    "tlH2": "Milestones, in the order they happened.",
-    "tlIntro": "Real ship dates - no retrofitted narrative.",
-    "tl1t": "ProStaff is founded",
-    "tl1": "Development of the team management platform begins.",
-    "tl2t": "First partner teams",
-    "tl2": "Brazilian League of Legends organizations start using ProStaff in production, integrated with the Riot Games API and PandaScore.",
-    "tl3t": "ArenaBR goes live",
-    "tl3": "Amateur tournaments with brackets and PIX payment.",
-    "tl4t": "scrims.lol goes live",
-    "tl4": "Scrim matchmaking with invites, inhouse sessions and built-in analytics.",
+    "note": "Effront is a young security practice. Instead of inflating a client list or a vulnerability count, this page lists exactly what we can verify - and nothing more.",
+    "tlSec": "Verified engagement",
+    "tlH2": "Not portfolio slides - work you can actually verify.",
+    "tlIntro": "Real work, described without exposing the target, test data, or anything not yet fixed.",
+    "tl1d": "2026-03",
+    "tl1t": "Authorized black-box pentest",
+    "tl1": "Black-box penetration test of a municipal public-service scheduling system, no credentials, no backend code access. Multiple vulnerabilities found and classified by severity, with proof of concept for each.",
+    "tl2d": "2026-09",
+    "tl2t": "Retest after fix",
+    "tl2": "Second session to validate the fixes applied by the development team - including a regression we found and reported that the first round of fixes had missed.",
+    "tl3d": "2026 - ongoing",
+    "tl3t": "Continuous testing of our own platform",
+    "tl3": "28 custom offensive-security scripts run against our own API and frontend - JWT and session attacks, multi-tenant isolation, race conditions, SSRF, mass assignment, WebSocket auth. Four vulnerabilities found and fixed this way, each with severity, root cause and fix documented. Every push also runs through static analysis, dependency auditing and secret scanning in CI.",
     "tmSec": "Who builds it",
     "tmH2": "Real people, with names and LinkedIn.",
-    "tmIntro": "No inflated titles, no ghost team - the people here write the code.",
-    "ecoSec": "Stay tuned"
+    "tmIntro": "No inflated titles, no ghost team - the people here do the work."
   },
   "Careers": {
     "kicker": "Careers",
@@ -207,17 +222,16 @@
   "News": {
     "kicker": "News",
     "h1": "What happened, <gold>when it happened.</gold>",
-    "lede": "No inflated press releases - this page records the products' real milestones."
+    "lede": "No inflated press releases - this page records real milestones."
   },
   "Privacy": {
-    "kicker": "Privacy Policy",
     "h1": "Privacy Policy",
-    "updated": "Last updated: July 2026",
-    "intro": "This policy covers effront.gg only -- the institutional site you're reading right now. Each product (ProStaff, ArenaBR, scrims.lol, peneira.gg) has its own privacy policy covering how it handles player, team and organization data. This page only covers what happens when you interact with effront.gg itself.",
+    "updated": "Last updated: September 2026",
+    "intro": "This policy covers effront.gg only -- the institutional site you're reading right now. If we run a client engagement, the scope and data handling for that project are covered separately, in writing, as part of the engagement contract. This page only covers what happens when you interact with effront.gg itself.",
     "sections": [
       {
         "title": "1. Information we collect",
-        "body": "This site has no accounts, no sign-up forms, and no cookie-based tracking. The only information we receive is whatever you choose to send us: if you email contato@effront.gg (a job application, a general question), we receive your email address, name, and whatever else you include in that message. Standard web server logs (IP address, browser type, pages requested) may be collected by our hosting provider for security and uptime purposes."
+        "body": "This site has no accounts, no sign-up forms, and no cookie-based tracking. The only information we receive is whatever you choose to send us: if you email contato@effront.gg (a job application, a scope inquiry, a general question), we receive your email address, name, and whatever else you include in that message. Standard web server logs (IP address, browser type, pages requested) may be collected by our hosting provider for security and uptime purposes."
       },
       {
         "title": "2. How we use it",
@@ -233,7 +247,7 @@
       },
       {
         "title": "5. Security",
-        "body": "Email sent to contato@effront.gg travels through our email provider's standard security. Since this site doesn't handle passwords, payment data, or game accounts, none of that applies here -- see the relevant product's own privacy policy for how it protects your data."
+        "body": "Email sent to contato@effront.gg travels through our email provider's standard security. This site doesn't handle passwords, payment data, or player accounts -- any system we test under a client engagement is covered by that engagement's own data-handling terms, not this policy."
       },
       {
         "title": "6. Your rights (LGPD)",
@@ -261,21 +275,17 @@
   "MediaKit": {
     "kicker": "Media Kit",
     "h1": "The <gold>Effront</gold> brand.",
-    "lede": "The essentials for citing or showing Effront and its products - straight from the design system.",
+    "lede": "The essentials for citing or showing Effront - straight from the design system.",
     "s1": "Logo & Wordmark",
-    "s1note": "Bricolage Grotesque 800, always with the gold dot, on dark backgrounds.",
+    "s1note": "Bricolage Grotesque 800, always with the red dot, on black backgrounds.",
     "s2": "Colors",
-    "rules": "Gold is never a solid fill - only border, text, or a gradient to transparent. No blue-purple gradients, no photos on surfaces.",
-    "c1": "Hextech Gold",
+    "rules": "Red is never a solid flood-fill on large surfaces - only border, text, or a gradient to transparent. No stock hacker/glitch imagery, no neon-on-black cliches.",
+    "c1": "Signal Red",
     "c2": "Background",
-    "c3": "Deep Blue",
-    "c4": "Teal",
     "s3": "Typography",
     "t1": "Display - headings",
     "t2": "Body - text and UI",
-    "s4": "Product logos",
-    "copy": "Copy HEX",
-    "download": "Download PNG →"
+    "copy": "Copy HEX"
   },
   "Vaga": {
     "title": "Opening - Effront",
@@ -284,12 +294,12 @@
     "notFound": "Opening not found - it may have been closed."
   },
   "Meta": {
-    "titleLanding": "Effront - Infrastructure for competitive play",
+    "titleLanding": "Effront - Offensive security for gaming",
     "titleAbout": "About - Effront",
     "titleCareers": "Careers - Effront",
     "titleNews": "News - Effront",
     "titlePrivacy": "Privacy Policy - Effront",
     "titleMediaKit": "Media Kit - Effront",
-    "titleProducts": "Products - Effront"
+    "titleServices": "Services - Effront"
   }
 }

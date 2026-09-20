@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Link } from "@/i18n/navigation";
+import { CtaBand } from "@/components/CtaBand";
 import { VAGAS } from "@/data/vagas";
 import type { Locale } from "@/i18n/routing";
 
@@ -85,15 +86,11 @@ export default async function VagaPage({ params }: Props) {
             {t("back")}
           </Link>
           <div className="vg-body" dangerouslySetInnerHTML={{ __html: vaga.body[loc] }} />
-          <div className="contact-block">
-            <a
-              href={`mailto:contato@effront.gg?subject=${encodeURIComponent("[Vaga] " + vaga.title[loc])}`}
-              className="contact-mail"
-            >
-              contato@effront.gg
-            </a>
-            <p className="contact-sub">{t("apply")}</p>
-          </div>
+          <CtaBand
+            heading={t("apply")}
+            href={`mailto:contato@effront.gg?subject=${encodeURIComponent("[Vaga] " + vaga.title[loc])}`}
+            cta="contato@effront.gg"
+          />
         </div>
       </section>
 

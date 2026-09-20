@@ -1,6 +1,6 @@
 {
   "Nav": {
-    "products": "Produtos",
+    "services": "Serviços",
     "careers": "Carreiras",
     "about": "Sobre",
     "talk": "Falar com a gente"
@@ -14,182 +14,193 @@
     "copyright": "© 2026 EFFRONT"
   },
   "Hero": {
-    "kicker": "Infraestrutura para esports",
-    "lead": "O software por trás",
-    "words": [
-      "do competitivo.",
-      "da gestão de times.",
-      "de campeonatos amadores.",
-      "da inteligência de draft.",
-      "de dados em tempo real."
-    ],
-    "sub": "Do time amador em ascensão à organização que já compete no mais alto nível: construímos a base técnica que roda por trás - do draft ao chaveamento.",
-    "note": "Hoje, focados em <b>League of Legends</b>. A mesma base vai sustentar outros títulos conforme o ecossistema cresce."
+    "lead": "Achamos o exploit",
+    "words": ["antes do trapaceiro.", "antes do atacante.", "antes do seu torneio cair."],
+    "sub": "Da API que roda o chaveamento de um torneio ao client que lê input do jogador - testamos a camada onde trapaça, fraude e comprometimento de plataforma realmente acontecem. Não é scan de infra genérico: é teste de segurança que entende a lógica do jogo.",
+    "note": "Construído por gente que já rodou infraestrutura em tempo real pra jogo competitivo. <b>Só testamos com autorização</b> - todo engajamento começa com escopo assinado."
   },
   "Mission": {
     "sectionLabel": "Quem somos",
-    "statementPrefix": "Começamos resolvendo um problema real: ",
-    "statementHighlight": "organizações competitivas de League of Legends sem ferramentas profissionais",
-    "statementSuffix": " pra gerenciar time, analisar draft ou rodar um campeonato.",
-    "follow": "Hoje, construímos a base técnica que sustenta isso. O que listamos aqui existe - e o que ainda está em construção aparece marcado como tal.",
-    "link": "Nossa história →"
+    "statementPrefix": "Começamos construindo ",
+    "statementHighlight": "infraestrutura em tempo real pra jogo competitivo",
+    "statementSuffix": " - e aprendemos exatamente onde esse tipo de sistema quebra.",
+    "follow": "Hoje aplicamos isso em segurança ofensiva: pentest, simulação de exploit e auditoria de lógica de jogo pra plataformas, torneios e estúdios. O que listamos aqui é o que a gente realmente faz - não é um menu de serviço copiado de MSSP genérico.",
+    "link": "Nossa trajetória →"
   },
   "Capabilities": {
-    "sectionLabel": "O que construímos",
-    "heading": "Uma base técnica, quatro produtos.",
-    "intro": "Cada item abaixo já está construído e em uso - não é roadmap, é o que roda hoje por trás do ProStaff, do ArenaBR, do scrims.lol e do peneira.gg.",
+    "sectionLabel": "Como testamos",
+    "heading": "Não é segurança de infra genérica.",
+    "intro": "Cada item abaixo é uma técnica real que usamos - não é checklist copiado de playbook de MSSP.",
     "items": [
       {
-        "tag": "IA",
-        "title": "Inteligência de draft",
-        "body": "Sinergia entre campeões, matchups de counter e probabilidade de vitória calculados a partir de milhares de partidas - o mesmo motor que sugere picks durante o draft ao vivo."
+        "tag": "Recon",
+        "title": "Mapeamento de superfície",
+        "body": "Endpoints de API, fluxo de matchmaking, fronteira client-server - mapeamos o que um atacante, ou um trapaceiro, miraria primeiro."
       },
       {
-        "tag": "Dados ao vivo",
-        "title": "Partidas em tempo real",
-        "body": "Integração direta com a Riot Games API e a PandaScore, com atualização de placares ao vivo via streaming de eventos."
+        "tag": "Exploit",
+        "title": "Abuso de lógica de negócio",
+        "body": "Duplicação de item, exploit de moeda, bypass de autenticação, manipulação de rank - as vulnerabilidades que scanner não acha porque não são código quebrado, são premissa quebrada."
       },
       {
-        "tag": "Segurança",
-        "title": "Arquitetura multi-tenant",
-        "body": "Isolamento completo de dados entre organizações e auditoria de acesso em cada camada do sistema."
+        "tag": "Anti-cheat",
+        "title": "Simulação de trapaça",
+        "body": "Construímos o mesmo tipo de ferramenta que um trapaceiro real usaria, em ambiente controlado, pra medir o que sua detecção realmente pega."
       },
       {
-        "tag": "ArenaBR",
-        "title": "Infraestrutura de competição",
-        "body": "Chaveamento, inscrição de times e pagamento via PIX - de ponta a ponta, para campeonatos amadores."
+        "tag": "Infra",
+        "title": "Teste de carga e resiliência",
+        "body": "Carga simulada contra matchmaking, chaveamento de torneio e infra de evento ao vivo - medido antes de uma audiência real achar o ponto de ruptura durante uma final."
       },
       {
-        "tag": "scrims.lol",
-        "title": "Matchmaking de scrims",
-        "body": "Sugestão de adversários por região e tier, disponibilidade configurável por semana e convites de scrim com aceite - mais inhouse com balanceamento por tier e analytics próprio."
+        "tag": "Relatório",
+        "title": "Reteste, não é PDF e sumiço",
+        "body": "Todo achado é retestado depois da correção. Severidade, evidência e status - acompanhados até fechar de verdade, não só reportado uma vez."
       },
       {
-        "tag": "peneira.gg",
-        "title": "Recrutamento e tryouts",
-        "body": "Banco de talentos, vagas e peneiras alimentadas por dados reais da Riot API - MVP em desenvolvimento sobre a prostaff-api e o riot-gateway."
+        "tag": "Ética",
+        "title": "Autorização por escrito, sempre",
+        "body": "Nenhum teste começa sem escopo assinado e autorização por escrito de quem é dono do sistema. Sem exceção."
       }
     ]
   },
-  "Products": {
-    "sectionLabel": "Produtos",
-    "heading": "Um produto por etapa da jornada competitiva.",
-    "whatItDoes": "O que faz",
+  "Services": {
+    "sectionLabel": "Serviços",
+    "heading": "Teste de segurança que entende a lógica do jogo.",
+    "pageIntro": "Segurança ofensiva pra plataformas de gaming, torneios e estúdios - de uma API única a um evento ao vivo sob carga.",
+    "whatItDoes": "O que cobre",
     "builtFor": "Feito para",
-    "prostaff": {
-      "eyebrow": "Para organizações competitivas",
-      "body": "Gestão completa para organizações de League of Legends: escalação, estatísticas de jogador, análise de draft e scouting - tudo em um só lugar, pensado para quem já leva o cenário competitivo a sério.",
-      "cta": "Ir para prostaff.gg →",
+    "viewAll": "Ver todos os serviços →",
+    "cta": "Discutir escopo →",
+    "platformPentest": {
+      "eyebrow": "Pra plataformas de torneio, launchers e backends",
+      "name": "Pentest de Plataforma & API",
+      "tagline": "Pentest manual da aplicação, API e backend da sua plataforma.",
+      "body": "Pentest manual da aplicação web, API e backend por trás do seu jogo ou plataforma - matchmaking, chaveamento de torneio, pagamento, conta de jogador. Vamos além do que um scanner automático pega.",
       "features": [
-        "Análise de draft e probabilidade de vitória com IA",
-        "Scouting e watchlist de jogadores",
-        "Mensageria e revisão de VOD em tempo real",
-        "Metas de time e acompanhamento de evolução"
+        "Teste de API REST/GraphQL",
+        "Abuso de autenticação e sessão",
+        "Lógica de matchmaking e chaveamento",
+        "Segurança do fluxo de pagamento"
       ],
       "builtFor": [
-        "Organizações profissionais e semi-profissionais",
-        "Elenco e staff técnico completo",
-        "Performance competitiva de verdade - não é um app de estatística casual"
-      ],
-      "tagline": "Escalação, IA de draft, scouting e VOD review - tudo em um só lugar."
+        "Operadores de torneio e plataforma",
+        "Estúdios com backend em produção",
+        "Times operando sob carga real de jogador"
+      ]
     },
-    "scrims": {
-      "eyebrow": "Para treinos competitivos",
-      "body": "Matchmaking de scrims entre times de League of Legends: sugestões de adversário por região e tier, disponibilidade configurável por semana, e convites com data proposta e mensagem - o desempenho de cada treino fica registrado direto no analytics do scrims.lol.",
-      "cta": "Ir para scrims.lol →",
+    "gameLogicAudit": {
+      "eyebrow": "Pra estúdios e jogos live-service",
+      "name": "Auditoria Anti-Cheat & Lógica de Jogo",
+      "tagline": "Auditando a lógica de negócio que um pentest genérico não pega.",
+      "body": "Auditamos a lógica de negócio que um pentest genérico não pega: duplicação de item, exploit de economia e moeda, manipulação de rank e matchmaking, e as premissas de confiança no client que seu anti-cheat depende.",
       "features": [
-        "Matchmaking por região e tier",
-        "Disponibilidade configurável por semana",
-        "Convites de scrim com aceite do adversário",
-        "Inhouse com balanceamento por tier",
-        "Lobby público do time",
-        "Analytics próprio: KDA, gráficos e tendências"
+        "Teste de exploit de economia e duplicação",
+        "Revisão de fronteira de confiança no client",
+        "Teste de manipulação de rank e matchmaking",
+        "Avaliação de bypass de anti-cheat"
       ],
       "builtFor": [
-        "Times em busca de treinos competitivos regulares",
-        "Elencos amadores e semi-profissionais",
-        "Mesmo backend que sustenta o ProStaff"
-      ],
-      "tagline": "Matchmaking de scrims pra treino competitivo."
+        "Jogos live-service com economia interna",
+        "Títulos competitivos com ranqueada",
+        "Estúdios validando anti-cheat antes do lançamento"
+      ]
     },
-    "arenabr": {
-      "eyebrow": "Para o cenário amador",
-      "body": "Organize e participe de campeonatos amadores de League of Legends - do chaveamento à inscrição, com pagamento integrado, sem depender de planilha e grupo de WhatsApp.",
-      "cta": "Ir para o ArenaBR →",
+    "exploitSimulation": {
+      "eyebrow": "Pra quem quer ver o ataque real, não só uma lista de achado",
+      "name": "Simulação de Exploit & Red Team",
+      "tagline": "O mesmo exploit que um atacante ou dev de cheat real construiria.",
+      "body": "Construímos e rodamos o mesmo tipo de exploit que um atacante ou desenvolvedor de cheat real usaria - prova de conceito, não citação teórica de CVE. Controlado, com escopo definido, sem nunca tocar em dado real de jogador.",
       "features": [
-        "Chaveamento automático de campeonatos",
-        "Inscrição de times simplificada",
-        "Pagamento via PIX integrado",
-        "Painel dedicado para organizadores e jogadores"
+        "Desenvolvimento de exploit/PoC sob medida",
+        "Simulação de adversário contra sistema em produção",
+        "Engajamento não destrutivo, com escopo definido",
+        "Só dado sintético - nenhum dado real de jogador é tocado"
       ],
       "builtFor": [
-        "Jogadores da cena amadora",
-        "Organizadores de campeonato",
-        "Competição estruturada - mesma base técnica que sustenta o ProStaff"
-      ],
-      "tagline": "Campeonatos amadores, do chaveamento ao pagamento."
+        "Orgs que já corrigem CVE conhecido e querem saber o que sobrou",
+        "Times se preparando pra uma auditoria de segurança",
+        "Quem quer prova, não checklist"
+      ]
     },
-    "peneira": {
-      "eyebrow": "Para quem procura (e monta) time",
-      "status": "MVP em desenvolvimento",
-      "cta": "Ir para peneira.gg →",
-      "body": "Recrutamento e tryouts para o cenário amador e semi-profissional brasileiro: banco de talentos, vagas de times e peneiras - construído sobre dados reais da Riot API via riot-gateway, em vez de perfil auto-declarado.",
+    "infraResilience": {
+      "eyebrow": "Pra evento ao vivo e lançamento de alto tráfego",
+      "name": "Teste de Resiliência de Infra de Torneio",
+      "tagline": "Achar o ponto de ruptura num teste, não na sua final.",
+      "body": "Teste de carga e resiliência contra matchmaking, chaveamento e infra de evento ao vivo - pra achar o ponto de ruptura num teste, não durante a sua grande final na frente de audiência.",
       "features": [
-        "Banco de talentos com filtros e perfis públicos",
-        "Vagas de times com candidatura",
-        "Peneiras: eventos de tryout com inscrição",
-        "LFT Generator - post pronto pra Discord e Twitter"
+        "Teste de carga simulada",
+        "Avaliação de resiliência a DDoS",
+        "Mapeamento de modo de falha sob carga",
+        "Revisão de prontidão pré-evento"
       ],
       "builtFor": [
-        "Jogadores e staff em busca de time",
-        "Organizações recrutando elenco",
-        "Mesmo backend: prostaff-api + riot-gateway"
-      ],
-      "tagline": "Recrutamento e tryouts alimentados por dados reais da Riot API."
+        "Organizadores de torneio",
+        "Plataformas com evento agendado de alto tráfego",
+        "Times que não podem sofrer queda durante transmissão"
+      ]
     },
-    "pageIntro": "Um produto por etapa da jornada competitiva - do amador em ascensão à organização que já compete no mais alto nível.",
-    "viewAll": "Ver todos os produtos →",
-    "productStats": "Métricas do produto",
-    "clients": "Clientes",
-    "comingSoon": "Em breve",
-    "previewSoon": "Prévia em breve"
+    "training": {
+      "eyebrow": "Pra time de engenharia rodando sistema em produção",
+      "name": "Treinamento de Segurança pra Times de Dev de Jogos",
+      "tagline": "As classes de vulnerabilidade que aparecem de verdade em backend de jogo.",
+      "body": "Treinamento prático e específico pra jogos - as classes de vulnerabilidade que realmente aparecem em matchmaking, netcode e backend de live-service, não um slide genérico.",
+      "features": [
+        "Código seguro pra backend de jogo",
+        "Classes de exploit comuns em jogo live-service",
+        "Laboratório prático com cenário sintético",
+        "Adaptado pra sua stack"
+      ],
+      "builtFor": [
+        "Times de engenharia rodando jogo live-service",
+        "Estúdios construindo seu primeiro anti-cheat",
+        "Times integrando novo engenheiro de backend"
+      ]
+    },
+    "incidentResponse": {
+      "eyebrow": "Pra plataforma e estúdio lidando com um incidente ativo",
+      "name": "Resposta a Incidente pra Plataforma de Gaming",
+      "tagline": "Resposta a violação e perícia quando já tá acontecendo.",
+      "body": "Quando acontece uma violação, uma onda de conta tomada ou vazamento de banco de dados de jogador, ajudamos a conter, entender o que realmente aconteceu, e voltar pra um estado defensável - não é um retainer de IR genérico, é resposta a incidente que entende os padrões de ataque específicos de gaming.",
+      "features": [
+        "Contenção e triagem",
+        "Reconstrução de linha do tempo forense",
+        "Avaliação de exposição de dado de jogador",
+        "Relatório de hardening pós-incidente"
+      ],
+      "builtFor": [
+        "Plataformas respondendo a uma violação ativa",
+        "Estúdios que sofreram onda de conta tomada",
+        "Times que precisam de relatório forense pra divulgação ou compliance"
+      ]
+    }
   },
   "Contact": {
     "sectionLabel": "Contato",
-    "heading": "Quer conhecer melhor? Fale com quem constrói a infraestrutura por trás do seu time.",
-    "sub": "Sem formulário, sem funil. Um e-mail direto pra quem escreve o código."
+    "heading": "Quer saber se seu jogo ou plataforma aguenta? Fale com quem vai testar de verdade.",
+    "sub": "Sem formulário, sem funil. Escopo discutido direto por e-mail, com quem escreve o exploit."
   },
   "About": {
     "kicker": "Sobre",
-    "h1": "O que construímos <gold>fala por nós.</gold>",
-    "lede": "A Effront é a empresa por trás do ProStaff, do ArenaBR, do scrims.lol e do peneira.gg. Construímos o software que roda por trás da gestão de times e da organização de campeonatos - e esta página mostra só o que já roda hoje.",
+    "h1": "O que a gente quebra <gold>fala por nós.</gold>",
+    "lede": "A Effront é segurança ofensiva pra gaming e esports: pentest de plataforma e API, auditoria de anti-cheat e lógica de jogo, simulação de exploit e teste de infra de torneio. Começamos construindo infraestrutura em tempo real pra jogo competitivo - essa página mostra o que essa bagagem nos permite testar de verdade.",
     "sec1": "De onde viemos",
-    "sec3": "O que já construímos",
-    "note": "A Effront é um projeto recente. Em vez de inflar números ou inventar logos de cliente, listamos nesta página exatamente o que já está construído e rodando - e nada além disso.",
-    "builtH2": "Não é roadmap - é o que roda hoje.",
-    "builtIntro": "Cada item existe, está em produção e pode ser verificado nos próprios produtos.",
-    "b1": "Sinergia de campeões, matchups de counter e probabilidade de vitória, calculados a partir de milhares de partidas reais.",
-    "b2t": "Riot Games API + PandaScore",
-    "b2tag": "Dados",
-    "b2": "Sincronização de dados de jogador e partida, incluindo o pipeline de atualização de placares ao vivo.",
-    "b3t": "Infraestrutura de competição amadora",
-    "b3": "Chaveamento, inscrição e pagamento via PIX - de ponta a ponta, sem depender de planilha.",
-    "b4": "Isolamento de dados entre organizações e auditoria de acesso em cada camada - levado a sério desde o início.",
-    "tlSec": "Linha do tempo",
-    "tlH2": "Marcos, na ordem em que aconteceram.",
-    "tlIntro": "Datas de entrega reais - sem narrativa retrofit.",
-    "tl1t": "ProStaff é fundado",
-    "tl1": "Início do desenvolvimento da plataforma de gestão de times.",
-    "tl2t": "Primeiros times parceiros",
-    "tl2": "Organizações brasileiras de League of Legends começam a usar o ProStaff em produção, com integração à Riot Games API e à PandaScore.",
-    "tl3t": "ArenaBR no ar",
-    "tl3": "Campeonatos amadores com chaveamento e pagamento via PIX.",
-    "tl4t": "scrims.lol no ar",
-    "tl4": "Matchmaking de scrims com convites, inhouse e analytics próprio.",
+    "note": "A Effront é uma prática de segurança recente. Em vez de inflar lista de cliente ou contagem de vulnerabilidade, essa página lista exatamente o que dá pra verificar - e nada além disso.",
+    "tlSec": "Engajamento verificável",
+    "tlH2": "Não é slide de portfólio - é trabalho que dá pra verificar.",
+    "tlIntro": "Trabalho real, descrito sem expor o alvo, dado de teste, ou nada que ainda não foi corrigido.",
+    "tl1d": "2026-03",
+    "tl1t": "Pentest black-box autorizado",
+    "tl1": "Pentest black-box de um sistema de agendamento de serviço público municipal, sem credenciais, sem acesso ao código do backend. Múltiplas vulnerabilidades encontradas e classificadas por severidade, com prova de conceito pra cada uma.",
+    "tl2d": "2026-09",
+    "tl2t": "Reteste pós-correção",
+    "tl2": "Segunda sessão pra validar as correções aplicadas pelo time de desenvolvimento - incluindo uma regressão que encontramos e reportamos, que a primeira rodada de correção tinha deixado passar.",
+    "tl3d": "2026 - contínuo",
+    "tl3t": "Teste contínuo da nossa própria plataforma",
+    "tl3": "28 scripts próprios de segurança ofensiva rodados contra nossa própria API e frontend - ataques de JWT e sessão, isolamento multi-tenant, race condition, SSRF, mass assignment, autenticação de WebSocket. Quatro vulnerabilidades encontradas e corrigidas assim, cada uma com severidade, causa raiz e correção documentadas. Todo push também passa por análise estática, auditoria de dependência e scan de segredo no CI.",
     "tmSec": "Quem constrói",
     "tmH2": "Gente real, com nome e LinkedIn.",
-    "tmIntro": "Sem cargo inflado nem equipe fantasma - quem aparece aqui escreve o código.",
-    "ecoSec": "Onde acompanhar"
+    "tmIntro": "Sem cargo inflado nem equipe fantasma - quem aparece aqui faz o trabalho."
   },
   "Careers": {
     "kicker": "Carreiras",
@@ -207,17 +218,16 @@
   "News": {
     "kicker": "Notícias",
     "h1": "O que aconteceu, <gold>quando aconteceu.</gold>",
-    "lede": "Sem release inflado - esta página registra os marcos reais dos produtos."
+    "lede": "Sem release inflado - esta página registra marcos reais."
   },
   "Privacy": {
-    "kicker": "Política de Privacidade",
     "h1": "Política de Privacidade",
-    "updated": "Última atualização: julho de 2026",
-    "intro": "Esta política cobre apenas o effront.gg -- o site institucional que você está lendo agora. Cada produto (ProStaff, ArenaBR, scrims.lol, peneira.gg) tem sua própria política de privacidade, cobrindo como trata dados de jogadores, times e organizações. Esta página cobre só o que acontece quando você interage com o effront.gg em si.",
+    "updated": "Última atualização: setembro de 2026",
+    "intro": "Esta política cobre apenas o effront.gg -- o site institucional que você está lendo agora. Se rodarmos um engajamento com cliente, o escopo e o tratamento de dados daquele projeto são cobertos separadamente, por escrito, como parte do contrato de engajamento. Esta página cobre só o que acontece quando você interage com o effront.gg em si.",
     "sections": [
       {
         "title": "1. Informações que coletamos",
-        "body": "Este site não tem contas, não tem formulário de cadastro e não usa rastreamento via cookies. A única informação que recebemos é o que você mesmo decide nos enviar: se você mandar um e-mail para contato@effront.gg (uma candidatura, uma pergunta geral), recebemos seu endereço de e-mail, nome, e o que mais você incluir na mensagem. Logs padrão de servidor web (endereço IP, tipo de navegador, páginas acessadas) podem ser coletados pelo nosso provedor de hospedagem por motivos de segurança e disponibilidade."
+        "body": "Este site não tem contas, não tem formulário de cadastro e não usa rastreamento via cookies. A única informação que recebemos é o que você mesmo decide nos enviar: se você mandar um e-mail para contato@effront.gg (uma candidatura, uma pergunta de escopo, uma pergunta geral), recebemos seu endereço de e-mail, nome, e o que mais você incluir na mensagem. Logs padrão de servidor web (endereço IP, tipo de navegador, páginas acessadas) podem ser coletados pelo nosso provedor de hospedagem por motivos de segurança e disponibilidade."
       },
       {
         "title": "2. Como usamos",
@@ -233,7 +243,7 @@
       },
       {
         "title": "5. Segurança",
-        "body": "E-mails enviados para contato@effront.gg trafegam pela segurança padrão do provedor de e-mail. Como este site não lida com senhas, dados de pagamento ou contas de jogo, nada disso se aplica aqui -- veja a política de privacidade do produto específico para saber como ele protege seus dados."
+        "body": "E-mails enviados para contato@effront.gg trafegam pela segurança padrão do provedor de e-mail. Este site não lida com senha, dado de pagamento ou conta de jogador -- qualquer sistema que testamos num engajamento de cliente é coberto pelos termos de tratamento de dados daquele engajamento, não por esta política."
       },
       {
         "title": "6. Seus direitos (LGPD)",
@@ -261,21 +271,17 @@
   "MediaKit": {
     "kicker": "Media Kit",
     "h1": "Marca <gold>Effront.</gold>",
-    "lede": "O essencial pra citar ou mostrar a Effront e seus produtos - direto do design system.",
+    "lede": "O essencial pra citar ou mostrar a Effront - direto do design system.",
     "s1": "Logo & Wordmark",
-    "s1note": "Bricolage Grotesque 800, sempre com o ponto dourado, sobre fundo escuro.",
+    "s1note": "Bricolage Grotesque 800, sempre com o ponto vermelho, sobre fundo preto.",
     "s2": "Cores",
-    "rules": "Dourado nunca em preenchimento sólido - só borda, texto ou gradiente pra transparente. Sem gradiente azul-arroxeado, sem foto em superfície.",
-    "c1": "Dourado Hextech",
+    "rules": "Vermelho nunca em preenchimento sólido em superfície grande - só borda, texto ou gradiente pra transparente. Sem imagem de hacker/glitch de banco de imagem, sem clichê neon-sobre-preto.",
+    "c1": "Vermelho Sinal",
     "c2": "Fundo",
-    "c3": "Azul profundo",
-    "c4": "Teal",
     "s3": "Tipografia",
     "t1": "Display - títulos",
     "t2": "Corpo - texto e UI",
-    "s4": "Logos de produto",
-    "copy": "Copiar HEX",
-    "download": "Baixar PNG →"
+    "copy": "Copiar HEX"
   },
   "Vaga": {
     "title": "Vaga - Effront",
@@ -284,12 +290,12 @@
     "notFound": "Vaga não encontrada - pode já ter sido fechada."
   },
   "Meta": {
-    "titleLanding": "Effront - Infraestrutura para o competitivo",
+    "titleLanding": "Effront - Segurança ofensiva pra gaming",
     "titleAbout": "Sobre - Effront",
     "titleCareers": "Carreiras - Effront",
     "titleNews": "Notícias - Effront",
     "titlePrivacy": "Política de Privacidade - Effront",
     "titleMediaKit": "Media Kit - Effront",
-    "titleProducts": "Produtos - Effront"
+    "titleServices": "Serviços - Effront"
   }
 }

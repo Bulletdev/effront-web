@@ -1,36 +1,19 @@
-import { XIcon, InstagramIcon, YouTubeIcon, GlobeIcon } from "./icons";
+import { XIcon, InstagramIcon, LinkedInIcon, YouTubeIcon } from "./icons";
 
 type Brand = {
   x?: string;
   instagram?: string;
+  linkedin?: string;
   youtube?: string;
-  website?: string;
 };
 
-/**
- * Per-brand links. Only the channels a brand actually has are listed, so each
- * card renders exactly the icons it should — no dead placeholders.
- */
+/** Effront's own channels. Only listed here if it actually exists — no dead placeholders. */
 const SOCIALS: Record<string, Brand> = {
   Effront: {
     x: "https://x.com/effrontgg",
     instagram: "https://www.instagram.com/effront.gg/",
+    linkedin: "https://www.linkedin.com/company/effront",
     youtube: "https://www.youtube.com/@effront",
-  },
-  ProStaff: {
-    x: "https://x.com/ProStaffGG",
-    instagram: "https://www.instagram.com/prostaff.gg/",
-    youtube: "https://www.youtube.com/@ProstaffGG",
-  },
-  ArenaBR: {
-    website: "https://arena-br.vercel.app",
-  },
-  "scrims.lol": {
-    website: "https://scrims.lol",
-  },
-  "peneira.gg": {
-    instagram: "https://www.instagram.com/peneira.gg/",
-    website: "https://peneira.gg/",
   },
 };
 
@@ -41,8 +24,8 @@ const LINKS: {
 }[] = [
   { key: "x", label: "X", Icon: XIcon },
   { key: "instagram", label: "Instagram", Icon: InstagramIcon },
+  { key: "linkedin", label: "LinkedIn", Icon: LinkedInIcon },
   { key: "youtube", label: "YouTube", Icon: YouTubeIcon },
-  { key: "website", label: "Website", Icon: GlobeIcon },
 ];
 
 export function SocialLinks({ name = "Effront" }: { name?: string }) {

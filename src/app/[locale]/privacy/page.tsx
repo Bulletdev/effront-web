@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Statement } from "@/components/Statement";
+import { Accordion } from "@/components/Accordion";
 import type { Locale } from "@/i18n/routing";
 
 export async function generateMetadata({
@@ -30,10 +31,6 @@ export default async function PrivacyPage({ params }: Props) {
 
       <header className="page-hero">
         <div className="wrap">
-          <span className="page-kicker">
-            <span className="diamond" />
-            {t("kicker")}
-          </span>
           <h1>{t("h1")}</h1>
           <Statement className="page-lede" text={t("intro")} />
           <p className="legal-updated">{t("updated")}</p>
@@ -43,12 +40,12 @@ export default async function PrivacyPage({ params }: Props) {
       <section className="page-body">
         <div className="wrap">
           <div className="legal-doc">
-            {sections.map((sec, i) => (
-              <div className="legal-section" key={i}>
-                <h3>{sec.title}</h3>
-                <Statement text={sec.body} />
-              </div>
-            ))}
+            <Accordion
+              items={sections.map((sec) => ({
+                title: sec.title,
+                body: <Statement text={sec.body} />,
+              }))}
+            />
           </div>
 
           <Statement className="legal-note" text={t("note")} />
