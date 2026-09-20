@@ -186,6 +186,8 @@
     "lede": "A Effront é segurança ofensiva pra gaming e esports: pentest de plataforma e API, auditoria de anti-cheat e lógica de jogo, simulação de exploit e teste de infra de torneio. Começamos construindo infraestrutura em tempo real pra jogo competitivo - essa página mostra o que essa bagagem nos permite testar de verdade.",
     "sec1": "De onde viemos",
     "note": "A Effront é uma prática de segurança recente. Em vez de inflar lista de cliente ou contagem de vulnerabilidade, essa página lista exatamente o que dá pra verificar - e nada além disso.",
+    "moreLabel": "Ver mais",
+    "lessLabel": "Ver menos",
     "tlSec": "Engajamento verificável",
     "tlH2": "Não é slide de portfólio - é trabalho que dá pra verificar.",
     "tlIntro": "Trabalho real, descrito sem expor o alvo, dado de teste, ou nada que ainda não foi corrigido.",

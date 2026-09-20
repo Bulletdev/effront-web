@@ -2269,6 +2269,37 @@ img.tm-avatar {
   padding: 0 0 22px;
 }
 
+/* read-more clip — mobile only, desktop always shows content in full */
+.readmore-btn {
+  display: none;
+}
+@media (max-width: 640px) {
+  .readmore-clip {
+    position: relative;
+    max-height: 230px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, #000 65%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 65%, transparent 100%);
+  }
+  .readmore[data-open="true"] .readmore-clip {
+    max-height: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .readmore-btn {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--gold);
+    cursor: pointer;
+  }
+}
+
 /* logo marquee — pure CSS loop, pauses on hover */
 .marquee {
   overflow: hidden;

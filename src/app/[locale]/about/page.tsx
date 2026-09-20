@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Statement } from "@/components/Statement";
 import { Reveal } from "@/components/Reveal";
 import { Accordion } from "@/components/Accordion";
+import { ReadMore } from "@/components/ReadMore";
 import { CtaBand } from "@/components/CtaBand";
 import type { Locale } from "@/i18n/routing";
 
@@ -86,11 +87,13 @@ export default async function AboutPage({ params }: Props) {
               <span className="idx">01</span>
               <span>{t("sec1")}</span>
             </div>
-            <Statement className="mission-statement mt-[52px]" text={t("lede")} />
-            <Statement
-              className="mission-note mt-10 max-w-[60ch] text-[15.5px] leading-[1.68] text-(--muted-fg)"
-              text={t("note")}
-            />
+            <ReadMore moreLabel={t("moreLabel")} lessLabel={t("lessLabel")}>
+              <Statement className="mission-statement mt-[52px]" text={t("lede")} />
+              <Statement
+                className="mission-note mt-10 max-w-[60ch] text-[15.5px] leading-[1.68] text-(--muted-fg)"
+                text={t("note")}
+              />
+            </ReadMore>
           </Reveal>
         </div>
       </section>

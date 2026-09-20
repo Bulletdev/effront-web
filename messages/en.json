@@ -190,6 +190,8 @@
     "lede": "Effront is offensive security for gaming and esports: platform and API pentest, anti-cheat and game-logic auditing, exploit simulation and tournament infrastructure testing. We started building real-time infrastructure for competitive gaming - this page shows what that background lets us actually test.",
     "sec1": "Where we come from",
     "note": "Effront is a young security practice. Instead of inflating a client list or a vulnerability count, this page lists exactly what we can verify - and nothing more.",
+    "moreLabel": "Read more",
+    "lessLabel": "Show less",
     "tlSec": "Verified engagement",
     "tlH2": "Not portfolio slides - work you can actually verify.",
     "tlIntro": "Real work, described without exposing the target, test data, or anything not yet fixed.",
