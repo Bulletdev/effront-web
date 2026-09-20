@@ -457,7 +457,19 @@ section {
   max-width: 38ch;
 }
 
-/* ── capabilities jigsaw: 3×2 on desktop, 1×6 vertical strip on mobile ── */
+/* ── capabilities jigsaw: puzzle grid on desktop, plain accordion list on mobile ── */
+.cap-list-mobile {
+  display: none;
+}
+@media (max-width: 900px) {
+  .cap-puzzle-desktop {
+    display: none;
+  }
+  .cap-list-mobile {
+    display: block;
+    margin-top: 8px;
+  }
+}
 .cap-puzzle {
   position: relative;
   width: 100%;
@@ -2290,10 +2302,13 @@ img.tm-avatar {
 .acc-body-inner {
   overflow: hidden;
   min-height: 0;
-  padding: 0 0 22px;
+  padding: 0;
   font-size: 14px;
   line-height: 1.65;
   color: var(--muted-fg);
+}
+.acc-item[data-open="true"] .acc-body-inner {
+  padding: 0 0 22px;
 }
 
 /* logo marquee — pure CSS loop, pauses on hover */

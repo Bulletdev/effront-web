@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CapabilitiesPuzzle, type CapPiece } from "@/components/CapabilitiesPuzzle";
+import { Accordion } from "@/components/Accordion";
 import { Statement, withSentenceBreaks } from "@/components/Statement";
 import { Reveal } from "@/components/Reveal";
 import { CtaBand } from "@/components/CtaBand";
@@ -22,6 +23,32 @@ export async function generateMetadata({
 }
 
 type Props = { params: Promise<{ locale: string }> };
+
+function toAccordionItems(pieces: CapPiece[]) {
+  return pieces.map((p) => ({
+    title: (
+      <span className="flex items-center gap-3 text-left">
+        {p.Icon && <p.Icon size={20} strokeWidth={1.75} className="shrink-0 text-(--gold)" />}
+        <span className="flex flex-col gap-0.5">
+          <span className="line-clamp-1 text-[10.5px] font-bold tracking-[0.1em] text-(--teal) uppercase">
+            {p.tag}
+          </span>
+          <span className="text-[15px] font-bold">{p.title}</span>
+        </span>
+      </span>
+    ),
+    body: p.href ? (
+      <>
+        <p>{p.body}</p>
+        <Link href={p.href} className="mission-link mt-3 inline-block">
+          {p.title} →
+        </Link>
+      </>
+    ) : (
+      p.body
+    ),
+  }));
+}
 
 export default async function LandingPage({ params }: Props) {
   const { locale } = await params;
@@ -119,7 +146,12 @@ export default async function LandingPage({ params }: Props) {
               <h2>{tServ("heading")}</h2>
               <p>{tServ("pageIntro")}</p>
             </div>
-            <CapabilitiesPuzzle items={servicePieces} />
+            <div className="cap-puzzle-desktop">
+              <CapabilitiesPuzzle items={servicePieces} />
+            </div>
+            <div className="cap-list-mobile">
+              <Accordion items={toAccordionItems(servicePieces)} />
+            </div>
             <Link href="/services" className="mission-link mt-10 inline-block">
               {tServ("viewAll")}
             </Link>
@@ -138,7 +170,12 @@ export default async function LandingPage({ params }: Props) {
               <h2>{tCap("heading")}</h2>
               <p>{tCap("intro")}</p>
             </div>
-            <CapabilitiesPuzzle items={capPieces} />
+            <div className="cap-puzzle-desktop">
+              <CapabilitiesPuzzle items={capPieces} />
+            </div>
+            <div className="cap-list-mobile">
+              <Accordion items={toAccordionItems(capPieces)} />
+            </div>
           </Reveal>
         </div>
       </section>
