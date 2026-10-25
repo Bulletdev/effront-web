@@ -2,14 +2,13 @@
 
 /*
   Effront design tokens.
-  Offensive security for gaming — single red accent on black, no LoL/Hextech
-  inheritance. Variable names kept as --gold/--teal/--blue-dark for now to
-  avoid a 100+ site-wide rename; only the values changed. Rename to
-  --accent/--accent2/--surface-alt in a follow-up pass if it's worth the diff.
+  Tech Gold + Digital Teal on deep navy — matches the production brand kit in
+  /public/brandkit (stone gargoyle mascot, hex emblem, HUD vectors).
 
-  Don'ts carried over from the previous design system — do not reintroduce:
+  Don'ts — do not reintroduce:
+  - no purple/violet gradients
   - no colored-left-border card
-  - no solid red flood-fill on large surfaces (border, text or
+  - no solid gold flood-fill on large surfaces (border, text or
     gradient-to-transparent only)
   - no stock hacker/glitch/neon-on-black imagery
   - no photographic imagery on surfaces
@@ -17,29 +16,32 @@
 */
 
 :root {
-  --bg: #060606;
-  --card: #121212;
-  --border: #2a2223;
+  --bg: #0a0e1a;
+  --card: #0f1823;
+  --border: #24303c;
   --muted-fg: #bcbcbc;
   --fg: #ffffff;
   --fg-dim: rgba(255, 255, 255, 0.85);
   --fg-faint: rgba(255, 255, 255, 0.42);
 
-  --gold: #f20024;
-  --gold-hi: #ff3b54;
-  --gold-dim: rgba(242, 0, 36, 0.55);
-  --gold-faint: rgba(242, 0, 36, 0.12);
-  --blue-dark: #150a0c;
-  --teal: #f20024;
-  --teal-faint: rgba(242, 0, 36, 0.14);
+  --gold: #c89b3c;
+  --gold-hi: #e8c878;
+  --gold-dim: rgba(200, 155, 60, 0.55);
+  --gold-faint: rgba(200, 155, 60, 0.12);
+  --blue-dark: #0c223f;
+  --teal: #0596aa;
+  --teal-faint: rgba(5, 150, 170, 0.14);
 
   --radius: 6px;
   --container-w: 1200px;
 
+  /* tactical microcopy voice (labels, tags, buttons) — system mono, no font cost */
+  --font-mono: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, monospace;
+
   --ease: cubic-bezier(0.2, 0, 0.1, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.32), 0 2px 8px rgba(0, 0, 0, 0.22);
-  --shadow-glow: 0 0 0 1px var(--gold-dim), 0 14px 30px rgba(242, 0, 36, 0.12);
+  --shadow-glow: 0 0 0 1px var(--gold-dim), 0 14px 30px rgba(200, 155, 60, 0.12);
 }
 
 @theme inline {
@@ -136,12 +138,27 @@ button:focus-visible {
   }
 }
 
+/* mono voice for all tactical microcopy — the Hakai IBM-Plex-Mono idiom */
+.sec-label,
+.page-kicker,
+.btn-tactical,
+.prod-eyebrow,
+.prod-col-label,
+.prod-status,
+.prodshow-status,
+.proud-header .p-status,
+.cap-piece__tag,
+.vg-cat,
+.foot-tagline {
+  font-family: var(--font-mono);
+}
+
 /* ── section label: gold index + hairline running to the margin ── */
 .sec-label {
   display: flex;
   align-items: center;
   gap: 14px;
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -170,7 +187,7 @@ button:focus-visible {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(6, 6, 6, 0.82);
+  background: rgba(10, 14, 26, 0.82);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
@@ -216,6 +233,7 @@ button:focus-visible {
 }
 .mobile-nav-link {
   padding: 12px 0;
+  font-family: var(--font-mono);
   font-size: 15px;
   font-weight: 600;
   color: var(--muted-fg);
@@ -261,40 +279,190 @@ button:focus-visible {
 /* ── hero: copy left, illustration right ── */
 .hero {
   position: relative;
-  padding: 104px 0 0;
+  padding: 104px 0 72px;
   border-bottom: 1px solid var(--border);
   overflow: hidden;
+  background: #030712;
 }
 .hero::before {
   content: "";
   position: absolute;
   inset: 0 0 auto;
-  height: 520px;
+  height: 420px;
   z-index: 0;
-  background: linear-gradient(180deg, rgba(242, 0, 36, 0.12) 0%, rgba(6, 6, 6, 0) 100%);
+  background: linear-gradient(180deg, rgba(200, 155, 60, 0.08) 0%, transparent 100%);
   pointer-events: none;
+}
+.hero-techgrid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 59px,
+      var(--gold) 59px,
+      var(--gold) 60px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 59px,
+      var(--gold) 59px,
+      var(--gold) 60px
+    );
+  -webkit-mask-image: radial-gradient(ellipse 65% 75% at 62% 45%, #000 15%, transparent 70%);
+  mask-image: radial-gradient(ellipse 65% 75% at 62% 45%, #000 15%, transparent 70%);
+}
+.hero-techgrid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 19px,
+      var(--teal) 19px,
+      var(--teal) 20px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 19px,
+      var(--teal) 19px,
+      var(--teal) 20px
+    );
+  opacity: 0.35;
+  -webkit-mask-image: radial-gradient(ellipse 35% 45% at 66% 40%, #000 5%, transparent 65%);
+  mask-image: radial-gradient(ellipse 35% 45% at 66% 40%, #000 5%, transparent 65%);
+}
+/* mouse-tracked spotlight (driven by HeroFx): warm radial revealed under cursor */
+.hero-spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    400px circle at var(--hx, 70%) var(--hy, 30%),
+    rgba(200, 155, 60, 0.1),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+.hero-spot-on .hero-spotlight {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
+  .hero-spotlight {
+    display: none;
+  }
 }
 .hero .wrap {
   position: relative;
-  z-index: 1;
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
-  align-items: center;
-  gap: 40px;
-  padding-bottom: 56px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
+  align-items: start;
+  gap: 30px;
+}
+.hero-copy {
+  margin-top: 80px;
 }
 .hero h1 {
   margin-top: 0;
   font-weight: 800;
-  font-size: clamp(3rem, 6.5vw, 6rem);
-  line-height: 0.96;
-  letter-spacing: -0.035em;
-  max-width: 11ch;
+  font-size: clamp(2.4rem, 4.6vw, 4.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  max-width: 16ch;
 }
 .hero h1 .gold {
   color: var(--gold);
+}
+
+/* ── headline glitch: short teal/gold burst every 7s, real layers (aria-hidden)
+   so screen readers never hear the word twice ── */
+.glitch {
+  position: relative;
+  /* inline-block: flows after the lead text but stays one rectangular box,
+     so the absolutely-inset glitch layers keep covering it when it wraps */
+  display: inline-block;
+}
+.glitch-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+}
+.glitch-a {
+  color: var(--teal);
+  animation: glitch-a 7s linear infinite;
+}
+.glitch-b {
+  color: var(--gold-hi);
+  animation: glitch-b 7s linear infinite;
+}
+@keyframes glitch-a {
+  0%,
+  93.9%,
+  97.2%,
+  100% {
+    opacity: 0;
+    transform: none;
+    clip-path: inset(0 0 0 0);
+  }
+  94% {
+    opacity: 0.85;
+    transform: translateX(-4px);
+    clip-path: inset(2% 0 64% 0);
+  }
+  95.5% {
+    opacity: 0.85;
+    transform: translateX(3px);
+    clip-path: inset(30% 0 36% 0);
+  }
+  97% {
+    opacity: 0.85;
+    transform: translateX(-2px);
+    clip-path: inset(70% 0 4% 0);
+  }
+}
+@keyframes glitch-b {
+  0%,
+  94%,
+  97.3%,
+  100% {
+    opacity: 0;
+    transform: none;
+    clip-path: inset(0 0 0 0);
+  }
+  94.1% {
+    opacity: 0.7;
+    transform: translateX(4px);
+    clip-path: inset(58% 0 8% 0);
+  }
+  95.6% {
+    opacity: 0.7;
+    transform: translateX(-3px);
+    clip-path: inset(8% 0 72% 0);
+  }
+  97.1% {
+    opacity: 0.7;
+    transform: translateX(2px);
+    clip-path: inset(44% 0 30% 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glitch-layer {
+    display: none;
+  }
 }
 html[lang="ko"] .hero h1 {
   display: flex;
@@ -304,8 +472,8 @@ html[lang="ko"] .hero h1 .lead {
   order: 2;
 }
 .hero-sub {
-  margin-top: 28px;
-  font-size: 18px;
+  margin-top: 24px;
+  font-size: 16.5px;
   font-weight: 450;
   line-height: 1.6;
   color: var(--muted-fg);
@@ -323,23 +491,38 @@ html[lang="ko"] .hero h1 .lead {
   color: var(--muted-fg);
   font-weight: 700;
 }
+/* mascot column: overflows top to dominate the hero like Hakai's character art */
 .hero-art {
+  position: relative;
   justify-self: end;
-  width: 100%;
-  max-width: 420px;
+  width: 140%;
+  max-width: none;
+  margin-top: -80px;
+  margin-right: -100px;
+  margin-bottom: -40px;
 }
 .hero-art img {
   width: 100%;
   height: auto;
   display: block;
+  mix-blend-mode: screen;
+  filter: brightness(1.35) drop-shadow(0 0 60px rgba(5, 150, 170, 0.3))
+    drop-shadow(0 0 120px rgba(200, 155, 60, 0.1));
+  -webkit-mask-image: radial-gradient(ellipse 82% 88% at 48% 46%, #000 48%, transparent 78%);
+  mask-image: radial-gradient(ellipse 82% 88% at 48% 46%, #000 48%, transparent 78%);
 }
 @media (max-width: 860px) {
   .hero-grid {
     grid-template-columns: 1fr;
   }
+  .hero-copy {
+    margin-top: 0;
+  }
   .hero-art {
     justify-self: center;
-    max-width: 320px;
+    max-width: 340px;
+    margin-top: 0;
+    margin-right: 0;
     order: -1;
   }
 }
@@ -357,8 +540,198 @@ html[lang="ko"] .hero h1 .lead {
   }
 }
 
+/* ── hero CTAs: notched tactical buttons ── */
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+.hero-ctas .btn-tactical {
+  height: 54px;
+  padding: 0 30px;
+  font-size: 15px;
+}
+.btn-tactical {
+  --notch: 12px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  padding: 0 26px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--gold-hi);
+  text-decoration: none;
+  cursor: pointer;
+  /* element background acts as a 1px faux-border that follows the notch cut */
+  background: var(--gold-dim);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--notch)) 0,
+    100% var(--notch),
+    100% 100%,
+    var(--notch) 100%,
+    0 calc(100% - var(--notch))
+  );
+  transition:
+    background 0.2s var(--ease),
+    color 0.2s var(--ease),
+    filter 0.2s var(--ease);
+}
+.btn-tactical::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--notch)) 0,
+    100% var(--notch),
+    100% 100%,
+    var(--notch) 100%,
+    0 calc(100% - var(--notch))
+  );
+  background:
+    linear-gradient(135deg, rgba(200, 155, 60, 0.5), rgba(200, 155, 60, 0.16) 80%), var(--bg);
+  transition: background 0.2s var(--ease);
+}
+.btn-tactical:hover {
+  background: var(--gold);
+  color: var(--fg);
+  filter: drop-shadow(0 0 20px rgba(200, 155, 60, 0.45));
+}
+.btn-tactical:hover::before {
+  background:
+    linear-gradient(135deg, rgba(200, 155, 60, 0.72), rgba(200, 155, 60, 0.3) 80%), var(--bg);
+}
+.btn-tactical--ghost {
+  color: var(--fg-dim);
+  background: var(--border);
+}
+.btn-tactical--ghost::before {
+  background: var(--bg);
+}
+.btn-tactical--ghost:hover {
+  background: rgba(5, 150, 170, 0.6);
+  color: var(--fg);
+  filter: drop-shadow(0 0 12px rgba(5, 150, 170, 0.25));
+}
+.btn-tactical--ghost:hover::before {
+  background:
+    linear-gradient(135deg, rgba(5, 150, 170, 0.18), rgba(5, 150, 170, 0.03) 70%), var(--bg);
+}
+.btn-tactical.sm {
+  --notch: 10px;
+  height: 40px;
+  padding: 0 18px;
+  font-size: 13px;
+}
+@media (max-width: 600px) {
+  .hero-ctas .btn-tactical {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── hero ambient layers ── */
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px;
+  mix-blend-mode: overlay;
+}
+/* edge darkening */
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 80% 70% at 50% 40%,
+    transparent 35%,
+    rgba(3, 7, 18, 0.75) 100%
+  );
+}
+
+/* ── about: manifesto copy + relaxed mascot side by side ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+  gap: 56px;
+  align-items: end;
+}
+.about-mascot {
+  width: 100%;
+  max-width: 340px;
+  justify-self: end;
+}
+.about-mascot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  mix-blend-mode: screen;
+}
+@media (max-width: 860px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .about-mascot {
+    justify-self: center;
+    max-width: 240px;
+  }
+}
+
 section {
   padding: 84px 0;
+}
+
+/* ── ghost lettering behind section headings (Hakai-style letterings) ── */
+.has-ghost {
+  position: relative;
+  overflow: hidden;
+}
+.has-ghost .wrap {
+  position: relative;
+  z-index: 1;
+}
+/* huge outline lettering running BEHIND the section heading, Hakai-style */
+.ghost-word {
+  position: absolute;
+  top: 36px;
+  left: 3%;
+  z-index: 0;
+  font-family: var(--font-display-stack, var(--font-display)), sans-serif;
+  font-weight: 800;
+  font-size: clamp(5rem, 13vw, 11rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(200, 155, 60, 0.16);
+  user-select: none;
+  pointer-events: none;
+}
+@media (max-width: 700px) {
+  .ghost-word {
+    display: none;
+  }
+}
+
+/* full-bleed card-tone band — rhythm break between flat bg sections */
+.section-band {
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 /* ── mission ── */
@@ -401,6 +774,7 @@ section {
 }
 .mission-statement .hi {
   color: var(--fg);
+  text-shadow: 0 0 40px rgba(200, 155, 60, 0.12);
 }
 .mission-follow {
   display: flex;
@@ -528,8 +902,10 @@ section {
   padding: 15% 15% 16%;
 }
 .cap-piece__icon {
-  color: rgb(var(--accent));
   margin-bottom: 2px;
+}
+.icon-gold {
+  filter: brightness(0) invert(1);
 }
 .cap-piece__tag {
   align-self: flex-start;
@@ -687,7 +1063,7 @@ section {
   text-transform: uppercase;
   color: var(--teal);
   background: var(--teal-faint);
-  border: 1px solid rgba(242, 0, 36, 0.3);
+  border: 1px solid rgba(5, 150, 170, 0.32);
   border-radius: 999px;
   padding: 5px 12px;
 }
@@ -840,7 +1216,7 @@ section {
   line-height: 0.78;
   letter-spacing: -0.02em;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(242, 0, 36, 0.18);
+  -webkit-text-stroke: 1px rgba(200, 155, 60, 0.2);
   user-select: none;
   transform: translateY(12%);
 }
@@ -848,34 +1224,46 @@ section {
 /* ── footer ── */
 footer {
   border-top: 1px solid var(--border);
-  padding: 36px 0;
+  padding: 48px 0 36px;
 }
 footer .wrap {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
+  gap: 28px;
 }
 .foot-brand {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-}
-.foot-wordmark {
-  display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
+  text-align: center;
+}
+.foot-logo-link {
+  display: block;
+  text-decoration: none;
 }
 .foot-logo {
   width: auto;
-  height: 22px;
+  height: 96px;
+  mix-blend-mode: screen;
 }
 .foot-tagline {
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   color: var(--fg-faint);
+  text-transform: uppercase;
+}
+.foot-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
 }
 .foot-nav {
   display: flex;
@@ -893,6 +1281,7 @@ footer .wrap {
 .foot-social {
   display: flex;
   gap: 8px;
+  margin-left: auto;
 }
 .foot-social a {
   display: grid;
@@ -915,27 +1304,14 @@ footer .wrap {
   height: 13px;
   fill: currentColor;
 }
-@media (max-width: 640px) {
-  .foot-brand {
-    order: 1;
-  }
-  .foot-social {
-    order: 2;
-  }
-  .foot-nav {
-    order: 3;
-    flex-basis: 100%;
-  }
-  .copyright {
-    order: 4;
-    flex-basis: 100%;
-  }
-}
 .copyright {
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.04em;
   color: var(--fg-faint);
+  padding-left: 40px;
+  margin-left: 20px;
+  border-left: 1px solid var(--border);
 }
 
 /* ── secondary page hero (careers / news / privacy / media-kit) ── */
@@ -945,18 +1321,18 @@ footer .wrap {
   border-bottom: 1px solid var(--border);
   overflow: hidden;
 }
+/* z-index -1 so black-matte art in .page-hero-art can screen-blend against it */
 .page-hero::before {
   content: "";
   position: absolute;
   inset: 0 0 auto;
   height: 380px;
-  z-index: 0;
-  background: linear-gradient(180deg, rgba(242, 0, 36, 0.12) 0%, rgba(6, 6, 6, 0) 100%);
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(200, 155, 60, 0.1) 0%, rgba(10, 14, 26, 0) 100%);
   pointer-events: none;
 }
 .page-hero .wrap {
   position: relative;
-  z-index: 1;
 }
 .page-kicker {
   display: inline-flex;
@@ -1007,6 +1383,8 @@ footer .wrap {
   width: 100%;
   height: auto;
   display: block;
+  /* brandkit PNGs ship on solid #000 — blend them into the page */
+  mix-blend-mode: screen;
 }
 @media (max-width: 860px) {
   .page-hero-grid {
@@ -1541,7 +1919,7 @@ footer .wrap {
   letter-spacing: 0.1em;
   color: var(--teal);
   background: var(--teal-faint);
-  border: 1px solid rgba(242, 0, 36, 0.3);
+  border: 1px solid rgba(5, 150, 170, 0.32);
   border-radius: 999px;
   padding: 3px 9px;
 }
@@ -1770,7 +2148,7 @@ footer .wrap {
   text-transform: uppercase;
   color: var(--teal);
   background: var(--teal-faint);
-  border: 1px solid rgba(242, 0, 36, 0.3);
+  border: 1px solid rgba(5, 150, 170, 0.32);
   border-radius: 999px;
   padding: 4px 10px;
 }
@@ -1818,6 +2196,31 @@ footer .wrap {
   transform: translateY(-2px);
   color: inherit;
 }
+/* tactical corner bracket, revealed on hover */
+.team-card::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 18px;
+  height: 18px;
+  border-top: 1px solid var(--gold-dim);
+  border-right: 1px solid var(--gold-dim);
+  opacity: 0;
+  transition: opacity 0.2s var(--ease);
+  pointer-events: none;
+}
+.team-card:hover::after {
+  opacity: 1;
+}
+/* photos rest in grayscale, colorize on hover (Hakai team-card idiom) */
+img.tm-avatar {
+  filter: grayscale(1);
+  transition: filter 0.25s var(--ease);
+}
+.team-card:hover img.tm-avatar {
+  filter: grayscale(0);
+}
 .tm-avatar {
   width: 56px;
   height: 56px;
@@ -1833,8 +2236,8 @@ footer .wrap {
     45deg,
     transparent,
     transparent 5px,
-    rgba(242, 0, 36, 0.07) 5px,
-    rgba(242, 0, 36, 0.07) 6px
+    rgba(200, 155, 60, 0.07) 5px,
+    rgba(200, 155, 60, 0.07) 6px
   );
   border-radius: 999px;
   overflow: hidden;
@@ -1850,6 +2253,11 @@ img.tm-avatar {
 .tm-role {
   font-size: 13px;
   color: var(--teal);
+  margin-top: 3px;
+}
+.tm-credential {
+  font-size: 12px;
+  color: var(--fg-faint);
   margin-top: 3px;
 }
 .tm-in {
@@ -2335,6 +2743,87 @@ img.tm-avatar {
   }
 }
 
+/* binary-matrix banner behind the contact band — right-anchored, fades out
+   before it reaches the copy; screen blend sinks its black matte into the band */
+/* ── contact banner: full-bleed image bg with centered overlay (Hakai newsletter pattern) ── */
+.contact-banner {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+.contact-banner-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.55;
+}
+.contact-banner-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: right;
+  padding: 60px 36px;
+  max-width: var(--container-w);
+  margin: 0 auto;
+}
+.contact-banner-overlay .sec-label {
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+.contact-banner-overlay .sec-label::after {
+  display: none;
+}
+.contact-banner-overlay h2 {
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  max-width: 22ch;
+  text-wrap: balance;
+}
+.contact-banner-overlay p {
+  margin-top: 16px;
+  max-width: 42ch;
+  color: var(--muted-fg);
+  font-size: 15px;
+  line-height: 1.65;
+}
+.contact-banner-overlay .btn-row {
+  justify-content: flex-end;
+  margin-top: 32px;
+}
+.contact-manifesto {
+  position: relative;
+  z-index: 2;
+  font-size: 13px;
+  color: var(--fg-faint);
+  text-align: center;
+  padding: 20px var(--page-gutter);
+  line-height: 1.6;
+  background: var(--bg);
+}
+@media (max-width: 760px) {
+  .contact-banner-bg {
+    height: 420px;
+    object-fit: cover;
+    object-position: left center;
+  }
+  .contact-banner-overlay {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .contact-banner-overlay .sec-label {
+    justify-content: flex-start;
+  }
+  .contact-banner-overlay .btn-row {
+    justify-content: flex-start;
+  }
+  .contact-banner-overlay h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+}
+
 /* CTA band — dark full-bleed band, reuses .section-dark as the wrapping section */
 .cta-band {
   text-align: center;
@@ -2376,11 +2865,14 @@ img.tm-avatar {
   justify-self: end;
   width: 100%;
   max-width: 300px;
+  /* Reveal's transform isolates the blend, so supply the band's flat backdrop */
+  background: var(--blue-dark);
 }
 .cta-band-art img {
   width: 100%;
   height: auto;
   display: block;
+  mix-blend-mode: screen;
 }
 @media (max-width: 760px) {
   .cta-band--split {
