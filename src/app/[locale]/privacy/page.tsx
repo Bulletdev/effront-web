@@ -51,7 +51,12 @@ export default async function PrivacyPage({ params }: Props) {
           <Statement className="legal-note" text={t("note")} />
 
           <div className="contact-block">
-            <a href="mailto:contato@effront.gg" className="contact-mail">
+            <a
+              href="mailto:contato@effront.gg"
+              className="contact-mail"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               contato@effront.gg
             </a>
           </div>

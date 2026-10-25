@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 
 /** Dark full-bleed pre-footer band. Wrap in a `<section className="section-dark">`.
- * Pass `art` (a path under /public) to switch from centered text to a
- * two-column layout with an illustration on the right. */
+ * Pass `art` (a path under /public plus intrinsic size) to switch from centered
+ * text to a two-column layout with an illustration on the right. */
 export function CtaBand({
   heading,
   body,
@@ -14,7 +15,7 @@ export function CtaBand({
   body?: ReactNode;
   href: string;
   cta: string;
-  art?: string;
+  art?: { src: string; width: number; height: number };
 }) {
   if (art) {
     return (
@@ -23,14 +24,13 @@ export function CtaBand({
           <h2>{heading}</h2>
           {body}
           <div className="btn-row">
-            <a href={href} className="btn-primary">
+            <a href={href} className="btn-primary" target="_blank" rel="noopener noreferrer">
               {cta}
             </a>
           </div>
         </div>
         <div className="cta-band-art" aria-hidden="true">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={art} alt="" />
+          <Image src={art.src} alt="" width={art.width} height={art.height} />
         </div>
       </div>
     );
@@ -41,7 +41,7 @@ export function CtaBand({
       <h2>{heading}</h2>
       {body}
       <div className="btn-row">
-        <a href={href} className="btn-primary">
+        <a href={href} className="btn-primary" target="_blank" rel="noopener noreferrer">
           {cta}
         </a>
       </div>

@@ -11,7 +11,8 @@ export function SiteNav({ locale, pathname }: { locale: Locale; pathname: string
   const t = useTranslations("Nav");
   const [open, setOpen] = useState(false);
 
-  const linkClass = "text-[14px] font-medium text-(--muted-fg) transition-colors hover:text-(--fg)";
+  const linkClass =
+    "font-mono text-[13.5px] font-medium text-(--muted-fg) transition-colors hover:text-(--fg)";
 
   return (
     <nav className="site-nav">
@@ -31,14 +32,16 @@ export function SiteNav({ locale, pathname }: { locale: Locale; pathname: string
             {t("about")}
           </Link>
           <LangSwitch locale={locale} pathname={pathname} />
-          <Link href="/#contato" className="btn-primary">
+          <Link href="/#contato" className="btn-tactical sm">
             {t("talk")}
           </Link>
         </div>
 
         <button
           type="button"
-          className="grid h-9 w-9 place-content-center text-(--fg) md:hidden"
+          // "grid" utility collides with the design-system .grid class in
+          // globals.css (unlayered, wins over md:hidden) — use flex here
+          className="flex h-9 w-9 items-center justify-center text-(--fg) md:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -61,7 +64,7 @@ export function SiteNav({ locale, pathname }: { locale: Locale; pathname: string
             </Link>
             <div className="mt-3 flex items-center justify-between gap-4">
               <LangSwitch locale={locale} pathname={pathname} />
-              <Link href="/#contato" className="btn-primary" onClick={() => setOpen(false)}>
+              <Link href="/#contato" className="btn-tactical sm" onClick={() => setOpen(false)}>
                 {t("talk")}
               </Link>
             </div>
