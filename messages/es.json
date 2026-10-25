@@ -11,13 +11,15 @@
     "privacy": "Política de Privacidad",
     "mediaKit": "Media Kit",
     "contact": "Contacto",
-    "copyright": "© 2026 EFFRONT"
+    "copyright": "© 2026 EFFRONT CYBERSECURITY"
   },
   "Hero": {
     "lead": "Encontramos el exploit",
     "words": ["antes que el tramposo.", "antes que el atacante.", "antes de que caiga tu torneo."],
     "sub": "Desde la API que corre el bracket de un torneo hasta el cliente que lee el input del jugador - probamos la capa donde ocurren trampas, fraude y compromiso de plataforma. No es un escaneo de infraestructura genérico: es seguridad que entiende la lógica del juego.",
-    "note": "Construido por gente que ya operó infraestructura en tiempo real para gaming competitivo. <b>Solo probamos con autorización</b> - todo engagement empieza con alcance firmado."
+    "note": "Construido por gente que ya operó infraestructura en tiempo real para gaming competitivo. <b>Solo probamos con autorización</b> - todo engagement empieza con alcance firmado.",
+    "cta": "Hablemos",
+    "ctaLearn": "Nuestra trayectoria"
   },
   "Mission": {
     "sectionLabel": "Quiénes somos",
@@ -175,17 +177,27 @@
       ]
     }
   },
+  "Credentials": {
+    "sectionLabel": "Hallazgos reales",
+    "heading": "No es un caso de estudio genérico.",
+    "intro": "Vulnerabilidades reales, reportadas y reconocidas públicamente - cada una con referencia verificable."
+  },
+  "Clients": {
+    "sectionLabel": "A quién ya probamos",
+    "heading": "Plataformas que ya pasaron por nuestro ataque.",
+    "intro": "Clientes autorizados a aparecer aquí."
+  },
   "Contact": {
     "sectionLabel": "Contacto",
     "heading": "¿Quieres saber si tu juego o plataforma aguanta? Habla con quienes realmente lo van a probar.",
-    "sub": "Sin formularios, sin funnel. Alcance discutido directo por email, con quienes escriben el exploit."
+    "sub": "Sin formularios, sin funnel, alcance discutido directo por email, con quienes escriben el exploit"
   },
   "About": {
     "kicker": "Nosotros",
     "h1": "Lo que rompemos <gold>habla por nosotros.</gold>",
-    "lede": "Effront es seguridad ofensiva para gaming y esports: pentest de plataforma y API, auditoría de anti-cheat y lógica de juego, simulación de exploits y pruebas de infraestructura de torneo. Empezamos construyendo infraestructura en tiempo real para gaming competitivo - esta página muestra qué nos permite probar realmente ese background.",
+    "lede": "Construimos infraestructura en tiempo real para gaming competitivo - y aprendimos exactamente dónde se rompe. Ahora la rompemos a propósito.",
     "sec1": "De dónde venimos",
-    "note": "Effront es una práctica de seguridad joven. En vez de inflar una lista de clientes o un conteo de vulnerabilidades, esta página lista exactamente lo que podemos verificar - y nada más.",
+    "note": "Seguridad ofensiva para plataformas de gaming, torneos y estudios. Sin lista de clientes inflada - esta página lista lo que podemos verificar y nada más.",
     "moreLabel": "Ver más",
     "lessLabel": "Ver menos",
     "tlSec": "Engagement verificable",
@@ -201,7 +213,7 @@
     "tl3t": "Prueba continua de nuestra propia plataforma",
     "tl3": "28 scripts propios de seguridad ofensiva ejecutados contra nuestra propia API y frontend - ataques de JWT y sesión, aislamiento multi-tenant, race conditions, SSRF, mass assignment, autenticación de WebSocket. Cuatro vulnerabilidades encontradas y corregidas así, cada una con severidad, causa raíz y corrección documentadas. Cada push también pasa por análisis estático, auditoría de dependencias y escaneo de secretos en CI.",
     "tmSec": "Quién lo construye",
-    "tmH2": "Gente real, con nombre y LinkedIn.",
+    "tmH2": "Gente real.",
     "tmIntro": "Sin títulos inflados ni equipo fantasma - quienes aparecen acá hacen el trabajo."
   },
   "Careers": {

@@ -11,7 +11,7 @@
     "privacy": "Privacy Policy",
     "mediaKit": "Media Kit",
     "contact": "Contact",
-    "copyright": "© 2026 EFFRONT"
+    "copyright": "© 2026 EFFRONT CYBERSECURITY"
   },
   "Hero": {
     "lead": "We find the exploit",
@@ -21,7 +21,9 @@
       "before your tournament goes down."
     ],
     "sub": "From the API that runs a tournament bracket to the client that reads player input - we test the layer where cheating, fraud and platform compromise actually happen. Not generic infra scanning: security testing that understands game logic.",
-    "note": "Built by people who shipped real-time infrastructure for competitive gaming. <b>Authorized testing only</b> - every engagement starts with a signed scope."
+    "note": "Built by people who shipped real-time infrastructure for competitive gaming. <b>Authorized testing only</b> - every engagement starts with a signed scope.",
+    "cta": "Talk to us",
+    "ctaLearn": "Our background"
   },
   "Mission": {
     "sectionLabel": "Who we are",
@@ -179,17 +181,27 @@
       ]
     }
   },
+  "Credentials": {
+    "sectionLabel": "Real findings",
+    "heading": "Not a generic case study.",
+    "intro": "Real vulnerabilities, reported and publicly acknowledged - each with a verifiable reference."
+  },
+  "Clients": {
+    "sectionLabel": "Who we've tested",
+    "heading": "Platforms that already went through our attack.",
+    "intro": "Clients authorized to appear here."
+  },
   "Contact": {
     "sectionLabel": "Contact",
     "heading": "Want to know if your game or platform holds up? Talk to the people who'll actually test it.",
-    "sub": "No forms, no funnel. Scope discussed directly by email, with the people who write the exploit."
+    "sub": "No forms, no funnel, scope discussed directly by email, with the people who write the exploit"
   },
   "About": {
     "kicker": "About",
     "h1": "What we break <gold>speaks for us.</gold>",
-    "lede": "Effront is offensive security for gaming and esports: platform and API pentest, anti-cheat and game-logic auditing, exploit simulation and tournament infrastructure testing. We started building real-time infrastructure for competitive gaming - this page shows what that background lets us actually test.",
+    "lede": "We built real-time infrastructure for competitive gaming - and learned exactly where it breaks. Now we break it on purpose.",
     "sec1": "Where we come from",
-    "note": "Effront is a young security practice. Instead of inflating a client list or a vulnerability count, this page lists exactly what we can verify - and nothing more.",
+    "note": "Offensive security for gaming platforms, tournaments and studios. No inflated client list - this page lists what we can verify and nothing more.",
     "moreLabel": "Read more",
     "lessLabel": "Show less",
     "tlSec": "Verified engagement",
@@ -205,7 +217,7 @@
     "tl3t": "Continuous testing of our own platform",
     "tl3": "28 custom offensive-security scripts run against our own API and frontend - JWT and session attacks, multi-tenant isolation, race conditions, SSRF, mass assignment, WebSocket auth. Four vulnerabilities found and fixed this way, each with severity, root cause and fix documented. Every push also runs through static analysis, dependency auditing and secret scanning in CI.",
     "tmSec": "Who builds it",
-    "tmH2": "Real people, with names and LinkedIn.",
+    "tmH2": "Real people.",
     "tmIntro": "No inflated titles, no ghost team - the people here do the work."
   },
   "Careers": {
