@@ -1,6 +1,7 @@
-import type { CSSProperties, ComponentType } from "react";
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import { Icon, type IconName } from "@/components/Icon";
 import { CAP_PUZZLE, CAP_PUZZLE_MOBILE } from "@/data/capPuzzle";
 
 export type CapPiece = {
@@ -9,12 +10,12 @@ export type CapPiece = {
   body: string;
   image: string | null;
   href?: string;
-  Icon?: ComponentType<{ size?: number; strokeWidth?: number; className?: string }>;
+  icon?: IconName;
 };
 
 // Single red accent per the brand tokens — every piece hovers the same tint,
 // no rainbow of unrelated colors.
-const ACCENTS = ["242, 0, 36"] as const;
+const ACCENTS = ["200, 155, 60"] as const;
 
 export function CapabilitiesPuzzle({ items }: { items: CapPiece[] }) {
   const d = CAP_PUZZLE;
@@ -74,7 +75,7 @@ export function CapabilitiesPuzzle({ items }: { items: CapPiece[] }) {
               />
             )}
             <div className="cap-piece__inner">
-              {it.Icon && <it.Icon size={22} strokeWidth={1.75} className="cap-piece__icon" />}
+              {it.icon && <Icon name={it.icon} size={22} className="cap-piece__icon" />}
               <span className="cap-piece__tag">{it.tag}</span>
               <h3 className="cap-piece__title">{it.title}</h3>
               <p className="cap-piece__body">{it.body}</p>
