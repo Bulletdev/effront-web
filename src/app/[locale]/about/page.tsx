@@ -7,7 +7,6 @@ import { Statement } from "@/components/Statement";
 import { Reveal } from "@/components/Reveal";
 import { Accordion } from "@/components/Accordion";
 import { ReadMore } from "@/components/ReadMore";
-import { CtaBand } from "@/components/CtaBand";
 import type { Locale } from "@/i18n/routing";
 
 export async function generateMetadata({
@@ -20,7 +19,17 @@ export async function generateMetadata({
   return { title: t("titleAbout") };
 }
 
-const TEAM = [
+type TeamMember = {
+  name: string;
+  role: string;
+  /** short credential line (cert, years, notable finding) — omit rather than invent */
+  credential?: string;
+  linkedin: string;
+  avatar: string;
+  initials: string;
+};
+
+const TEAM: TeamMember[] = [
   {
     name: "Michael Douglas",
     role: "CEO & Founder",
@@ -82,19 +91,31 @@ export default async function AboutPage({ params }: Props) {
 
       <section id="historia">
         <div className="wrap">
-          <Reveal>
-            <div className="sec-label">
-              <span className="idx">01</span>
-              <span>{t("sec1")}</span>
-            </div>
-            <ReadMore moreLabel={t("moreLabel")} lessLabel={t("lessLabel")}>
-              <Statement className="mission-statement mt-[52px]" text={t("lede")} />
-              <Statement
-                className="mission-note mt-10 max-w-[60ch] text-[15.5px] leading-[1.68] text-(--muted-fg)"
-                text={t("note")}
+          {/* mascot lives outside Reveal: its transform would trap the
+              screen-blend that sinks the art's black matte into the page */}
+          <div className="about-grid">
+            <Reveal>
+              <div className="sec-label">
+                <span className="idx">01</span>
+                <span>{t("sec1")}</span>
+              </div>
+              <ReadMore moreLabel={t("moreLabel")} lessLabel={t("lessLabel")}>
+                <Statement className="mission-statement mt-[52px]" text={t("lede")} />
+                <Statement
+                  className="mission-note mt-10 max-w-[60ch] text-[15.5px] leading-[1.68] text-(--muted-fg)"
+                  text={t("note")}
+                />
+              </ReadMore>
+            </Reveal>
+            <div className="about-mascot" aria-hidden="true">
+              <Image
+                src="/brandkit/Gárgula Mecânica Dourada em Pose Dominante.png"
+                alt=""
+                width={1024}
+                height={1536}
               />
-            </ReadMore>
-          </Reveal>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -156,6 +177,7 @@ export default async function AboutPage({ params }: Props) {
                   <div>
                     <h3>{member.name}</h3>
                     <p className="tm-role">{member.role}</p>
+                    {member.credential && <p className="tm-credential">{member.credential}</p>}
                   </div>
                   <span className="tm-in">LinkedIn ↗</span>
                 </a>
@@ -165,20 +187,35 @@ export default async function AboutPage({ params }: Props) {
         </div>
       </section>
 
-      <section id="contato" className="section-dark">
-        <div className="wrap">
-          <div className="sec-label">
-            <span className="idx">04</span>
-            <span>{tContact("sectionLabel")}</span>
-          </div>
+      <section id="contato" className="contact-banner">
+        <Image
+          src="/brandkit/Gárgula Cibernética e Matriz BináriaCOntact.png"
+          alt=""
+          width={1916}
+          height={821}
+          className="contact-banner-bg"
+          aria-hidden="true"
+        />
+        <div className="contact-banner-overlay">
           <Reveal>
-            <CtaBand
-              heading={tContact("heading")}
-              href="mailto:contato@effront.gg"
-              cta="contato@effront.gg"
-            />
+            <div className="sec-label">
+              <span className="idx">04</span>
+              <span>{tContact("sectionLabel")}</span>
+            </div>
+            <h2>{tContact("heading")}</h2>
+            <div className="btn-row">
+              <a
+                href="mailto:contato@effront.gg"
+                className="btn-tactical"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                contato@effront.gg
+              </a>
+            </div>
           </Reveal>
         </div>
+        <p className="contact-manifesto">{tContact("sub")}</p>
       </section>
 
       <SiteFooter />

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Icon } from "@/components/Icon";
 import { Statement } from "@/components/Statement";
 import { Reveal } from "@/components/Reveal";
 import { SERVICES } from "@/data/services";
@@ -36,20 +38,14 @@ export default async function ServicesPage({ params }: Props) {
     <>
       <SiteNav locale={locale as Locale} pathname="/services" />
 
-      <header className="page-hero page-hero--split">
-        <div className="wrap page-hero-grid">
-          <div>
-            <span className="page-kicker">
-              <span className="diamond" />
-              {tServ("sectionLabel")}
-            </span>
-            <h1>{tServ("heading")}</h1>
-            <Statement className="page-lede" text={tServ("pageIntro")} />
-          </div>
-          <div className="page-hero-art" aria-hidden="true">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/illustrations/servicehero.svg" alt="" />
-          </div>
+      <header className="page-hero">
+        <div className="wrap">
+          <span className="page-kicker">
+            <span className="diamond" />
+            {tServ("sectionLabel")}
+          </span>
+          <h1>{tServ("heading")}</h1>
+          <Statement className="page-lede" text={tServ("pageIntro")} />
         </div>
       </header>
 
@@ -63,7 +59,7 @@ export default async function ServicesPage({ params }: Props) {
                   href={`#${s.id}`}
                   className="card card-pad card-interactive flex flex-col gap-3"
                 >
-                  <s.Icon size={22} strokeWidth={1.75} className="text-(--gold)" />
+                  <Icon name={s.icon} size={22} />
                   <span className="text-[12px] font-bold tracking-[0.1em] text-(--teal) uppercase">
                     {s.eyebrow}
                   </span>
@@ -94,14 +90,13 @@ export default async function ServicesPage({ params }: Props) {
               <div className={`prod-band ${i % 2 === 1 ? "alt" : ""}`} id={s.id}>
                 {art && (
                   <div className="prod-band-art" aria-hidden="true">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={art} alt="" />
+                    <Image src={art} alt="" width={800} height={600} />
                   </div>
                 )}
                 <div className="wrap">
                   <span className="prod-eyebrow">{copy.eyebrow}</span>
                   <div className="prod-head">
-                    <s.Icon size={40} strokeWidth={1.5} className="text-(--gold)" />
+                    <Icon name={s.icon} size={40} />
                     <h3 className="prod-name">{copy.name}</h3>
                   </div>
                   <div className="prod-cols">
