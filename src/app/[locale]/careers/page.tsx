@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -30,21 +31,31 @@ export default async function CareersPage({ params }: Props) {
     <>
       <SiteNav locale={locale as Locale} pathname="/careers" />
 
-      <header className="page-hero">
-        <div className="wrap">
-          <span className="page-kicker">
-            <span className="diamond" />
-            {t("kicker")}
-          </span>
-          <h1
-            dangerouslySetInnerHTML={{
-              __html: t
-                .raw("h1")
-                .replaceAll("<gold>", '<span class="gold">')
-                .replaceAll("</gold>", "</span>"),
-            }}
-          />
-          <Statement className="page-lede" text={t("lede")} />
+      <header className="page-hero page-hero--split">
+        <div className="wrap page-hero-grid">
+          <div>
+            <span className="page-kicker">
+              <span className="diamond" />
+              {t("kicker")}
+            </span>
+            <h1
+              dangerouslySetInnerHTML={{
+                __html: t
+                  .raw("h1")
+                  .replaceAll("<gold>", '<span class="gold">')
+                  .replaceAll("</gold>", "</span>"),
+              }}
+            />
+            <Statement className="page-lede" text={t("lede")} />
+          </div>
+          <div className="page-hero-art" aria-hidden="true">
+            <Image
+              src="/brandkit/Gárgula Cibernética de Asas Neon.png"
+              alt=""
+              width={1024}
+              height={1536}
+            />
+          </div>
         </div>
       </header>
 
