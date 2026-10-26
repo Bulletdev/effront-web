@@ -212,6 +212,9 @@
     "tl3d": "2026 - contínuo",
     "tl3t": "Teste contínuo da nossa própria plataforma",
     "tl3": "28 scripts próprios de segurança ofensiva rodados contra nossa própria API e frontend - ataques de JWT e sessão, isolamento multi-tenant, race condition, SSRF, mass assignment, autenticação de WebSocket. Quatro vulnerabilidades encontradas e corrigidas assim, cada uma com severidade, causa raiz e correção documentadas. Todo push também passa por análise estática, auditoria de dependência e scan de segredo no CI.",
+    "tl4d": "2026-10",
+    "tl4t": "Pentest black-box autorizado de plataforma de comunidade gamer",
+    "tl4": "Teste de penetracao black-box de uma plataforma de comunidade gamer construida em Odoo 16, autorizado pelo dono da plataforma. 13 vulnerabilidades encontradas e documentadas - 2 criticas, 4 altas, 5 medias, 2 baixas - cobrindo gerenciamento de banco de dados exposto, vazamento de stack trace, exposicao de IP, headers de seguranca ausentes, enumeracao de usuario via XML-RPC e rotas de teste publicas. Relatorio completo entregue com prova de conceito, classificacao de severidade e orientacao de remediacao para cada achado.",
     "tmSec": "Quem constrói",
     "tmH2": "Gente real.",
     "tmIntro": "Sem cargo inflado nem equipe fantasma - quem aparece aqui faz o trabalho."

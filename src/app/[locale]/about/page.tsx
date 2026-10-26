@@ -66,6 +66,7 @@ export default async function AboutPage({ params }: Props) {
     { date: t("tl1d"), title: t("tl1t"), body: t("tl1") },
     { date: t("tl2d"), title: t("tl2t"), body: t("tl2") },
     { date: t("tl3d"), title: t("tl3t"), body: t("tl3") },
+    { date: t("tl4d"), title: t("tl4t"), body: t("tl4") },
   ];
 
   return (
