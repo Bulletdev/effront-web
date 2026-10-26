@@ -1245,7 +1245,7 @@ footer .wrap {
 }
 .foot-logo {
   width: auto;
-  height: 96px;
+  height: 120px;
   mix-blend-mode: screen;
 }
 .foot-tagline {
@@ -1506,7 +1506,8 @@ footer .wrap {
 }
 .mk-logo {
   width: auto;
-  height: clamp(3rem, 8vw, 6rem);
+  height: clamp(4rem, 10vw, 8rem);
+  mix-blend-mode: screen;
 }
 .mk-logo-full {
   height: clamp(220px, 26vw, 360px);

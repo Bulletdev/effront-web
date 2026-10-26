@@ -22,11 +22,16 @@ type Props = { params: Promise<{ locale: string }> };
 
 const SWATCHES = [
   {
-    hex: "#F20024",
+    hex: "#c89b3c",
     key: "c1" as const,
-    style: "linear-gradient(135deg, #F20024, rgba(242,0,36,0))",
+    style: "linear-gradient(135deg, #c89b3c, rgba(200,155,60,0))",
   },
-  { hex: "#060606", key: "c2" as const, style: "#060606" },
+  {
+    hex: "#0596aa",
+    key: "c2" as const,
+    style: "linear-gradient(135deg, #0596aa, rgba(5,150,170,0))",
+  },
+  { hex: "#0a0e1a", key: "c3" as const, style: "#0a0e1a" },
 ];
 
 export default async function MediaKitPage({ params }: Props) {
@@ -68,10 +73,10 @@ export default async function MediaKitPage({ params }: Props) {
               <div className="mk-lockup">
                 <Image
                   className="mk-logo"
-                  src="/logos/effront-mark.png"
-                  alt="Effront mark"
-                  width={512}
-                  height={512}
+                  src="/brandkit/Logo Emblema Cibernético do Gárgula Digital.png"
+                  alt="Effront emblem"
+                  width={1254}
+                  height={1254}
                 />
                 <span className="mk-wordmark">
                   Effront<span className="dot">.</span>
@@ -83,7 +88,7 @@ export default async function MediaKitPage({ params }: Props) {
                 <Image
                   className="mk-logo mk-logo-full"
                   src="/logos/effront-cybersecurity-lockup.png"
-                  alt="Effront Cybersecurity logo"
+                  alt="Effront Cybersecurity lockup"
                   width={1254}
                   height={1254}
                 />
