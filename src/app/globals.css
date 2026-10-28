@@ -362,12 +362,56 @@ button:focus-visible {
     display: none;
   }
 }
+.hero-illustration {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 55%;
+  max-width: 700px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+.hero-illustration img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 860px) {
+  .hero-illustration {
+    width: 90%;
+    opacity: 0.1;
+  }
+}
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to left,
+    transparent 10%,
+    rgba(3, 7, 18, 0.55) 35%,
+    rgba(3, 7, 18, 0.92) 55%,
+    #030712 80%
+  );
+}
+@media (max-width: 860px) {
+  .hero-scrim {
+    background: linear-gradient(
+      to bottom,
+      rgba(3, 7, 18, 0.3) 0%,
+      rgba(3, 7, 18, 0.75) 50%,
+      #030712 90%
+    );
+  }
+}
 .hero .wrap {
   position: relative;
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
+  grid-template-columns: 1fr;
   align-items: start;
   gap: 30px;
 }
