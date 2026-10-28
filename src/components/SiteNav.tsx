@@ -41,7 +41,7 @@ export function SiteNav({ locale, pathname }: { locale: Locale; pathname: string
           type="button"
           // "grid" utility collides with the design-system .grid class in
           // globals.css (unlayered, wins over md:hidden) — use flex here
-          className="flex h-9 w-9 items-center justify-center text-(--fg) md:hidden"
+          className="flex h-11 w-11 items-center justify-center text-(--fg) md:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}

@@ -232,7 +232,10 @@ button:focus-visible {
   background: var(--bg);
 }
 .mobile-nav-link {
-  padding: 12px 0;
+  padding: 14px 8px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
   font-family: var(--font-mono);
   font-size: 15px;
   font-weight: 600;
@@ -1361,7 +1364,7 @@ footer .wrap {
 /* ── secondary page hero (careers / news / privacy / media-kit) ── */
 .page-hero {
   position: relative;
-  padding: 88px 0 56px;
+  padding: 180px 0 100px;
   border-bottom: 1px solid var(--border);
   overflow: hidden;
 }

@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { inter, bricolage } from "@/fonts";
 import { RightClickGuard } from "@/components/RightClickGuard";
+import { ScrambleFx } from "@/components/ScrambleFx";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -45,6 +46,7 @@ export default async function LocaleLayout({
       <body className="antialiased">
         <NextIntlClientProvider locale={locale}>{children}</NextIntlClientProvider>
         <RightClickGuard />
+        <ScrambleFx />
       </body>
     </html>
   );

@@ -23,18 +23,10 @@ export function SiteFooter() {
         </div>
         <div className="foot-bottom">
           <nav className="foot-nav">
-            <Link href="/careers" target="_blank">
-              {t("careers")}
-            </Link>
-            <Link href="/news" target="_blank">
-              {t("news")}
-            </Link>
-            <Link href="/privacy" target="_blank">
-              {t("privacy")}
-            </Link>
-            <Link href="/media-kit" target="_blank">
-              {t("mediaKit")}
-            </Link>
+            <Link href="/careers">{t("careers")}</Link>
+            <Link href="/news">{t("news")}</Link>
+            <Link href="/privacy">{t("privacy")}</Link>
+            <Link href="/media-kit">{t("mediaKit")}</Link>
           </nav>
           <span className="copyright">{t("copyright")}</span>
           <SocialLinks />
