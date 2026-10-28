@@ -108,7 +108,7 @@ export default async function LandingPage({ params }: Props) {
         <HeroFx />
         <div
           className="absolute inset-0 bg-cover bg-[center_right] bg-no-repeat opacity-50"
-          style={{ backgroundImage: "url('/brandkit/Fortaleza Cibernética em Rede Gráfica.png')" }}
+          style={{ backgroundImage: "url('/brandkit/FortalezaCibernéticaHero.png')" }}
           aria-hidden="true"
         />
         <div className="hero-scrim" aria-hidden="true" />
