@@ -5,7 +5,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Statement } from "@/components/Statement";
 import { CareersBoard } from "@/components/CareersBoard";
-import { CtaBand } from "@/components/CtaBand";
+import { Reveal } from "@/components/Reveal";
 import { VAGAS } from "@/data/vagas";
 import type { Locale } from "@/i18n/routing";
 
@@ -31,31 +31,30 @@ export default async function CareersPage({ params }: Props) {
     <>
       <SiteNav locale={locale as Locale} pathname="/careers" />
 
-      <header className="page-hero page-hero--split">
-        <div className="wrap page-hero-grid">
-          <div>
-            <span className="page-kicker">
-              <span className="diamond" />
-              {t("kicker")}
-            </span>
-            <h1
-              dangerouslySetInnerHTML={{
-                __html: t
-                  .raw("h1")
-                  .replaceAll("<gold>", '<span class="gold">')
-                  .replaceAll("</gold>", "</span>"),
-              }}
-            />
-            <Statement className="page-lede" text={t("lede")} />
-          </div>
-          <div className="page-hero-art" aria-hidden="true">
-            <Image
-              src="/brandkit/Gárgula Cibernética de Asas Neon.png"
-              alt=""
-              width={1024}
-              height={1536}
-            />
-          </div>
+      <header className="page-hero relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          style={{ backgroundImage: "url('/brandkit/heroidea.png')" }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-[var(--bg)] via-transparent to-[var(--bg)]"
+          aria-hidden="true"
+        />
+        <div className="wrap relative z-10">
+          <span className="page-kicker">
+            <span className="diamond" />
+            {t("kicker")}
+          </span>
+          <h1
+            dangerouslySetInnerHTML={{
+              __html: t
+                .raw("h1")
+                .replaceAll("<gold>", '<span class="gold">')
+                .replaceAll("</gold>", "</span>"),
+            }}
+          />
+          <Statement className="page-lede" text={t("lede")} />
         </div>
       </header>
 
@@ -77,9 +76,29 @@ export default async function CareersPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="section-dark">
-        <div className="wrap">
-          <CtaBand heading={t("ctaH2")} href="mailto:contato@effront.gg" cta="contato@effront.gg" />
+      <section id="contato" className="contact-banner">
+        <Image
+          src="/brandkit/Gárgula Cibernética e Matriz BináriaCOntact.png"
+          alt=""
+          width={1916}
+          height={821}
+          className="contact-banner-bg"
+          aria-hidden="true"
+        />
+        <div className="contact-banner-overlay">
+          <Reveal>
+            <h2>{t("ctaH2")}</h2>
+            <div className="btn-row">
+              <a
+                href="mailto:contato@effront.gg"
+                className="btn-tactical"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                contato@effront.gg
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 

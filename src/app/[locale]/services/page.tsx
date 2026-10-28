@@ -40,12 +40,19 @@ export default async function ServicesPage({ params }: Props) {
 
       <header className="page-hero">
         <div className="wrap">
-          <span className="page-kicker">
-            <span className="diamond" />
-            {tServ("sectionLabel")}
-          </span>
-          <h1>{tServ("heading")}</h1>
-          <Statement className="page-lede" text={tServ("pageIntro")} />
+          <div className="page-hero-grid">
+            <div>
+              <span className="page-kicker">
+                <span className="diamond" />
+                {tServ("sectionLabel")}
+              </span>
+              <h1>{tServ("heading")}</h1>
+              <Statement className="page-lede" text={tServ("pageIntro")} />
+            </div>
+            <div className="page-hero-art" aria-hidden="true">
+              <Image src="/illustrations/sophistication.svg" alt="" width={800} height={600} />
+            </div>
+          </div>
         </div>
       </header>
 

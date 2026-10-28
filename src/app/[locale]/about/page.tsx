@@ -73,8 +73,17 @@ export default async function AboutPage({ params }: Props) {
     <>
       <SiteNav locale={locale as Locale} pathname="/about" />
 
-      <header className="page-hero">
-        <div className="wrap">
+      <header className="page-hero relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          style={{ backgroundImage: "url('/brandkit/heroidea.png')" }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-[var(--bg)] via-transparent to-[var(--bg)]"
+          aria-hidden="true"
+        />
+        <div className="wrap relative z-10">
           <span className="page-kicker">
             <span className="diamond" />
             {t("kicker")}
@@ -94,29 +103,19 @@ export default async function AboutPage({ params }: Props) {
         <div className="wrap">
           {/* mascot lives outside Reveal: its transform would trap the
               screen-blend that sinks the art's black matte into the page */}
-          <div className="about-grid">
-            <Reveal>
-              <div className="sec-label">
-                <span className="idx">01</span>
-                <span>{t("sec1")}</span>
-              </div>
-              <ReadMore moreLabel={t("moreLabel")} lessLabel={t("lessLabel")}>
-                <Statement className="mission-statement mt-[52px]" text={t("lede")} />
-                <Statement
-                  className="mission-note mt-10 max-w-[60ch] text-[15.5px] leading-[1.68] text-(--muted-fg)"
-                  text={t("note")}
-                />
-              </ReadMore>
-            </Reveal>
-            <div className="about-mascot" aria-hidden="true">
-              <Image
-                src="/brandkit/Gárgula Mecânica Dourada em Pose Dominante.png"
-                alt=""
-                width={1024}
-                height={1536}
-              />
+          <Reveal>
+            <div className="sec-label">
+              <span className="idx">01</span>
+              <span>{t("sec1")}</span>
             </div>
-          </div>
+            <ReadMore moreLabel={t("moreLabel")} lessLabel={t("lessLabel")}>
+              <Statement className="mission-statement mt-[52px]" text={t("lede")} />
+              <Statement
+                className="mission-note mt-10 max-w-[60ch] text-[15.5px] leading-[1.68] text-(--muted-fg)"
+                text={t("note")}
+              />
+            </ReadMore>
+          </Reveal>
         </div>
       </section>
 

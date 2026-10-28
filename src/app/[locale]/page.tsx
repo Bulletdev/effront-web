@@ -106,8 +106,14 @@ export default async function LandingPage({ params }: Props) {
 
       <header className="hero">
         <HeroFx />
-        <div className="wrap hero-grid">
-          <div className="hero-copy">
+        <div
+          className="absolute inset-0 bg-cover bg-[center_right] bg-no-repeat opacity-50"
+          style={{ backgroundImage: "url('/brandkit/Fortaleza Cibernética em Rede Gráfica.png')" }}
+          aria-hidden="true"
+        />
+        <div className="hero-scrim" aria-hidden="true" />
+        <div className="wrap relative z-10">
+          <div className="hero-copy flex flex-col items-center text-center md:items-start md:text-left">
             <h1>
               <span className="lead">{tHero("lead")}</span>{" "}
               <span className="gold glitch">
@@ -132,17 +138,6 @@ export default async function LandingPage({ params }: Props) {
             <p
               className="hero-note"
               dangerouslySetInnerHTML={{ __html: withSentenceBreaks(tHero.raw("note")) }}
-            />
-          </div>
-          {/* swap to /brandkit/effront_gargoyle_hero.svg (official hero mascot)
-              once the file is restored — it vanished from public/brandkit */}
-          <div className="hero-art" aria-hidden="true">
-            <Image
-              src="/brandkit/Gárgula Mecânica com Hologramas Cibernéticos.png"
-              alt=""
-              width={1374}
-              height={1145}
-              priority
             />
           </div>
         </div>
@@ -170,11 +165,20 @@ export default async function LandingPage({ params }: Props) {
         </div>
       </section>
 
-      <section id="servicos" className="has-ghost">
+      <section id="servicos" className="has-ghost relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+          style={{ backgroundImage: "url('/brandkit/heroidea.png')" }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-[var(--bg)] via-transparent to-[var(--bg)]"
+          aria-hidden="true"
+        />
         <span className="ghost-word" aria-hidden="true">
           {tServ("sectionLabel")}
         </span>
-        <div className="wrap">
+        <div className="wrap relative z-10">
           <Reveal>
             <div className="sec-label">
               <span className="idx">02</span>
